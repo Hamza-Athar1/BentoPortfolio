@@ -1,80 +1,57 @@
 import BentoTile from "./BentoTile";
+import { Link } from "react-router-dom";
 
 const BentoGrid = () => {
-  const tiles = [
-    {
-      title: "Salmon",
-      to: "/salmon",
-      spanCols: 2,
-      spanRows: 1,
-      bg: "bg-pink-200/50",
-    },
-    {
-      title: "Broccoli",
-      to: "/broccoli",
-      spanCols: 2,
-      spanRows: 1,
-      bg: "bg-lime-200/50",
-    },
-    {
-      title: "Tamago",
-      to: "/tamago",
-      spanCols: 1,
-      spanRows: 4,
-      bg: "bg-yellow-200/50",
-    },
-    {
-      title: "Pork",
-      to: "/pork",
-      spanCols: 2,
-      spanRows: 2,
-      bg: "bg-amber-200/50",
-    },
-    {
-      title: "Edamame",
-      to: "/edamame",
-      spanCols: 1,
-      spanRows: 2,
-      bg: "bg-green-200/50",
-    },
-    {
-      title: "Tomato",
-      to: "/tomato",
-      spanCols: 3,
-      spanRows: 2,
-      bg: "bg-orange-200/50",
-    },
-  ];
-
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-100 dark:bg-gray-800">
-      <div
-        className="
-          grid 
-          w-full h-full 
-          max-w-screen-lg 
-          grid-cols-4 grid-rows-4 
-          gap-4 
-          bg-gray-200 dark:bg-gray-900 
-          p-2 
-          rounded-lg 
-          shadow-lg
-        "
-      >
-        {tiles.map((tile, i) => (
-          <BentoTile
-            key={i}
-            to={tile.to}
-            title={tile.title}
-            className={`
-              col-span-${tile.spanCols} 
-              row-span-${tile.spanRows} 
-              ${tile.bg} 
-              rounded-lg 
-              shadow-md
-            `}
-          />
-        ))}
+      <div className="grid h-full w-full gap-4 p-2 grid-cols-6 grid-rows-6 rounded-lg shadow-md bg-gray-200 dark:bg-gray-900">
+        <div className="col-span-1 row-span-1 bg-pink-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>TechStack</p>
+        </div>
+
+        <div className="col-span-1 row-span-1 bg-lime-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>No. of Projects</p>
+        </div>
+
+        <div className="col-span-1 row-span-1 bg-yellow-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>No. of Clients</p>
+        </div>
+
+        <div className="col-span-1 row-span-1 bg-amber-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>YOE</p>
+        </div>
+
+        <div className="col-span-1 row-span-4 bg-green-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>Reviews</p>
+        </div>
+
+        <div className="col-span-1 row-span-4 bg-orange-200 rounded-lg shadow-md flex items-center justify-center">
+          <p>Achievements</p>
+        </div>
+
+        <div className="col-span-1 row-span-3 bg-gray-100 rounded-lg shadow-md flex items-center justify-center">
+          <p>Projects Gallery</p>
+        </div>
+
+        <div className="col-span-3 row-span-3 bg-yellow-50 rounded-lg shadow-md flex items-center justify-center">
+          <p>Self Details</p>
+        </div>
+
+        <div className="col-span-1 row-span-3 bg-yellow-300 rounded-lg shadow-md flex items-center justify-center">
+          <p>Services</p>
+        </div>
+
+        <div className="col-span-3 row-span-3 bg-green-50 rounded-lg shadow-md flex items-center justify-center">
+          <p>TBD</p>
+        </div>
+
+        <div className="col-span-1 row-span-3 bg-orange-100 rounded-lg shadow-md flex items-center justify-center">
+          <p>Socials</p>
+        </div>
+
+        <div className="col-span-1 row-span-3 bg-white rounded-lg shadow-md flex items-center justify-center">
+          <p>Contact</p>
+        </div>
       </div>
     </div>
   );
