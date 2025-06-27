@@ -7,9 +7,9 @@ import {
   PiCalendarCheckDuotone,
 } from "react-icons/pi";
 
-const BentoGrid = () => {
+const BentoGridLg = () => {
   return (
-    <div className="lg:h-screen lg:w-screen bg-gray-900 ">
+    <div className="lg:h-screen lg:w-screen bg-gray-900 p-1">
       <div
         className="
           grid h-full w-full gap-4 
@@ -158,4 +158,4 @@ const BentoGrid = () => {
   );
 };
 
-export default BentoGrid;
+export default BentoGridLg;

@@ -3,14 +3,16 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import BentoGrid from "./components/BentoGrid";
+import BentoGridLg from "./components/BentoGridLg";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <BentoGrid />
+      <div className="hidden lg:block">
+        <BentoGridLg />
+      </div>
     </>
   );
 }
