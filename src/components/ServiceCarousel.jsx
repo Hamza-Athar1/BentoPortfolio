@@ -32,7 +32,7 @@ export default function ServicesCarousel() {
           {items.map((service, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center w-[120px] h-24 flex-shrink-0 mx-1"
+              className="flex flex-col items-center justify-center w-[120px] h-16 flex-shrink-0 mx-1"
             >
               {service.icon}
               <span className="text-gray-200 text-xs mt-1">{service.name}</span>
