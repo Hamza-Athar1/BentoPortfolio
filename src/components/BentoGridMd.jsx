@@ -1,7 +1,9 @@
 import React from "react";
 import ProjectCarousel from "./Carousel";
-import ServicesCarousel from "./ServiceCarousel";
 import Marquee from "react-fast-marquee";
+import AC from "../assets/AC.png";
+import Aiaura from "../assets/Aiaura.png";
+import ReactMini from "../assets/ReactMini.png";
 import {
   PiFlagBannerFoldFill,
   PiMagnifyingGlassBold,
@@ -113,12 +115,7 @@ export default function BentoGridMd() {
                 <div className="text-lg font-bold text-white mb-2 tracking-tight">
                   Tech Arsenal
                 </div>
-                <Marquee
-                  speed={40}
-                  pauseOnHover
-                  gradient={false}
-                  className="mt-2"
-                >
+                <Marquee speed={40} pauseOnHover className="mt-2">
                   <span className="flex flex-row justify-center gap-4 w-full">
                     <span className="flex flex-col items-center gap-2 bg-[#23232a]/80 rounded-xl px-4 py-3 shadow border border-[#61dafb]/10 hover:scale-105 transition">
                       <SiReact className="text-3xl text-[#61dafb] drop-shadow" />
@@ -138,7 +135,7 @@ export default function BentoGridMd() {
                         Python
                       </span>
                     </span>
-                    <span className="flex flex-col items-center gap-2 bg-[#23232a]/80 rounded-xl px-4 py-3 shadow border border-[#00758F]/10 hover:scale-105 transition">
+                    <span className="flex flex-col items-center gap-2 mr-4 bg-[#23232a]/80 rounded-xl px-4 py-3 shadow border border-[#00758F]/10 hover:scale-105 transition">
                       <SiMysql className="text-3xl text-[#00758F] drop-shadow" />
                       <span className="text-xs text-[#00758F] font-semibold">
                         MySQL
@@ -161,7 +158,26 @@ export default function BentoGridMd() {
                   Works Gallery
                 </div>
                 <div className="w-full flex flex-col items-center relative">
-                  <ProjectCarousel />
+                  <Marquee className="z-[-1]" direction="right" speed={25}>
+                    <img
+                      src={AC}
+                      alt="Project 1"
+                      className="h-28 w-44 rounded-2xl mx-2 border-2 border-[#a78bfa]/30 shadow"
+                      style={{ borderRadius: "35px" }}
+                    />
+                    <img
+                      src={Aiaura}
+                      alt="Project 2"
+                      className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
+                      style={{ borderRadius: "35px" }}
+                    />
+                    <img
+                      src={ReactMini}
+                      alt="Project 3"
+                      className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
+                      style={{ borderRadius: "35px" }}
+                    />
+                  </Marquee>
                   <a
                     href="#"
                     className="px-5 py-2 rounded-xl absolute left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
@@ -186,12 +202,7 @@ export default function BentoGridMd() {
                 </div>
                 <p className="text-[#a1a1aa] text-xs">Solution Suite</p>
 
-                <Marquee
-                  pauseOnHover
-                  gradient={false}
-                  speed={40}
-                  className="mt-4"
-                >
+                <Marquee pauseOnHover speed={50} className="mt-4">
                   <span className="flex items-center gap-6">
                     <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
                       <PiGlobeHemisphereWestFill className="text-white text-xl" />
@@ -217,7 +228,7 @@ export default function BentoGridMd() {
                         Branding
                       </span>
                     </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
+                    <span className="flex items-center gap-2 mr-7 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
                       <PiAppWindow className="text-white text-xl" />
                       <span className="text-xs text-white font-semibold">
                         UI/UX
@@ -236,7 +247,7 @@ export default function BentoGridMd() {
             >
               {/* Projects */}
               <div className="bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#a78bfa]/10 flex flex-col items-center flex-1 text-gray-300">
-                <span className="text-white text-4xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
+                <span className=" text-4xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
                   56<span className="text-[#a78bfa] text-2xl">+</span>
                 </span>
                 <span className="text-[#a1a1aa] mt-2 flex flex-row items-center text-xs font-semibold">
@@ -246,7 +257,7 @@ export default function BentoGridMd() {
               </div>
               {/* Clients */}
               <div className="bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#fbbf24]/10 flex flex-col items-center flex-1 text-gray-300">
-                <span className="text-white text-4xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
+                <span className=" text-4xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
                   12<span className="text-[#a78bfa] text-2xl">+</span>
                 </span>
                 <span className="text-[#a1a1aa] mt-2 flex flex-row items-center text-xs font-semibold">
@@ -256,7 +267,7 @@ export default function BentoGridMd() {
               </div>
               {/* YOE */}
               <div className="bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#34d399]/10 flex flex-col items-center flex-1 text-gray-300">
-                <span className="text-white text-4xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
+                <span className=" text-4xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
                   5<span className="text-[#a78bfa] text-2xl">+</span>
                 </span>
                 <span className="text-[#a1a1aa] mt-2 flex flex-row items-center text-xs font-semibold">
@@ -529,20 +540,11 @@ export default function BentoGridMd() {
                     Hamza Athar
                   </span>
                   <span className="ml-auto text-[#a1a1aa]">
-                    <svg
-                      width="18"
-                      height="18"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="inline-block"
-                    >
-                      <path d="M5 12l5-5 5 5" />
-                    </svg>
+                    <FaFacebook />
                   </span>
                 </a>
                 <a
-                  href="https://instagram.com/praha37v"
+                  href="https://www.instagram.com/_hamza_nvm/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center bg-[#23232a]/80 rounded-xl px-4 py-3 gap-3 hover:bg-[#28282d] transition border border-[#e1306c]/10 shadow"
@@ -554,20 +556,11 @@ export default function BentoGridMd() {
                     @hamza
                   </span>
                   <span className="ml-auto text-[#a1a1aa]">
-                    <svg
-                      width="18"
-                      height="18"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="inline-block"
-                    >
-                      <path d="M5 12l5-5 5 5" />
-                    </svg>
+                    <FaInstagram />
                   </span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/praha37v"
+                  href="https://www.linkedin.com/in/hamza-athar-ezio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center bg-[#23232a]/80 rounded-xl px-4 py-3 gap-3 hover:bg-[#28282d] transition border border-[#0077b5]/10 shadow"
@@ -579,16 +572,7 @@ export default function BentoGridMd() {
                     Hamza Athar
                   </span>
                   <span className="ml-auto text-[#a1a1aa]">
-                    <svg
-                      width="18"
-                      height="18"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="inline-block"
-                    >
-                      <path d="M5 12l5-5 5 5" />
-                    </svg>
+                    <FaLinkedin />
                   </span>
                 </a>
               </div>

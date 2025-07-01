@@ -1,98 +1,55 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { PiUserBold, PiBooksBold, PiSquaresFourBold } from "react-icons/pi";
+import { useLocation, Link } from "react-router-dom";
+
+const tabs = [
+  {
+    name: "About",
+    path: "/about",
+    icon: <PiUserBold className="text-lg mr-2" />,
+  },
+  {
+    name: "Works",
+    path: "/works",
+    icon: <PiBooksBold className="text-lg mr-2" />,
+  },
+  {
+    name: "Services",
+    path: "/services",
+    icon: <PiSquaresFourBold className="text-lg mr-2" />,
+  },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const location = useLocation();
 
   return (
-    <nav className=" fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="text-2xl font-bold text-gray-900 dark:text-white"
-        >
-          Portfolio
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-6">
-          {navLinks.map((link) => (
+    <nav className="w-full flex justify-center items-center pt-8 pb-4 select-none">
+      <div className="flex bg-[#18181b] border border-[#23232a]/60 rounded-2xl shadow-lg px-2 py-2 gap-2 backdrop-blur-md">
+        {tabs.map((tab) => {
+          const isActive = location.pathname === tab.path;
+          return (
             <Link
-              key={link.name}
-              to={link.path}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition"
+              key={tab.name}
+              to={tab.path}
+              className={`flex items-center px-6 py-3 rounded-xl font-semibold text-sm transition
+                ${
+                  isActive
+                    ? "bg-[#a78bfa] text-black shadow-md"
+                    : "bg-[#23232a] text-[#a1a1aa] hover:bg-[#23232a]/80 hover:text-white"
+                }
+                border border-[#23232a]/40`}
+              style={{
+                boxShadow: isActive
+                  ? "0 2px 8px 0 rgba(167,139,250,0.10)"
+                  : undefined,
+              }}
             >
-              {link.name}
+              {tab.icon}
+              {tab.name}
             </Link>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-700 dark:text-gray-200 focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? (
-            // Close Icon
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            // Hamburger Icon
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
-        </button>
+          );
+        })}
       </div>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden px-6 pb-4 space-y-2 bg-white dark:bg-black">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className="block text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-      )}
     </nav>
   );
 };

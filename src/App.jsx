@@ -1,22 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import BentoGridLg from "./components/BentoGridLg";
 import BentoGridMd from "./components/BentoGridMd";
+import BentogridXs from "./components/BentogridXs";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [screen, setScreen] = useState(getScreen());
+
+  function getScreen() {
+    const width = window.innerWidth;
+    if (width >= 1024) return "lg";
+    if (width >= 768) return "md";
+    return "xs";
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      setScreen(getScreen());
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
-      <div className="hidden lg:block">
-        <BentoGridLg />
-      </div>
-      <div className="hidden md:block lg:hidden">
-        <BentoGridMd />
-      </div>
+      {screen === "lg" && <BentoGridLg />}
+      {screen === "md" && <BentoGridMd />}
+      {screen === "xs" && <BentogridXs />}
     </>
   );
 }

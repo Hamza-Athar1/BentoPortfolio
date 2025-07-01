@@ -1,13 +1,10 @@
 // src/components/ProjectCarousel.jsx
 import React from "react";
 import "../componentStyles/Carousel.css"; // Import the custom CSS
-
-const images = [
-  "../assets/Devlog1.png",
-  "../assets/Devlog2.png",
-  "../assets/Devlog3.png",
-  "../assets/Devlog4.png",
-];
+import AC from "../assets/AC.png";
+import Aiaura from "../assets/Aiaura.png";
+import ReactMini from "../assets/ReactMini.png";
+const images = [AC, Aiaura, ReactMini];
 
 export default function ProjectCarousel() {
   return (

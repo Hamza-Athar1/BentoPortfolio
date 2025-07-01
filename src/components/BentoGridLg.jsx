@@ -30,6 +30,9 @@ import {
 } from "react-icons/fa";
 import { SiCplusplus, SiMysql } from "react-icons/si";
 import Marquee from "react-fast-marquee";
+import AC from "../assets/AC.png";
+import Aiaura from "../assets/Aiaura.png";
+import ReactMini from "../assets/ReactMini.png";
 const BentoGridLg = () => {
   return (
     <div className="lg:h-screen lg:w-screen p-1 bg-gradient-to-br from-[#23232a] via-[#18181b] to-[#1e293b] min-h-screen">
@@ -61,7 +64,7 @@ const BentoGridLg = () => {
               <PiGithubLogoBold className="text-lg" />
             </a>
             <a
-              href="https://www.facebook.com/hamza.athar.1/"
+              href="https://facebook.com/hamza.athar.1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#fbbf24] transition-colors duration-300"
@@ -69,7 +72,7 @@ const BentoGridLg = () => {
               <PiFacebookLogoBold className="text-lg" />
             </a>
             <a
-              href="https://www.linkedin.com/in/hamza-athar-ezio/"
+              href="https://www.linkedin.com/in/hamza-athar-ezio"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#34d399] transition-colors duration-300"
@@ -234,32 +237,39 @@ const BentoGridLg = () => {
           <h2 className="text-base font-bold text-white mt-1 tracking-tight">
             Works Gallery
           </h2>
-
-          <Marquee speed={25}>
-            <img
-              src="/gallery1.jpg"
-              alt="Project 1"
-              className="h-16 w-auto rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
-            />
-            <img
-              src="/gallery2.jpg"
-              alt="Project 2"
-              className="h-16 w-auto rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
-            />
-            <img
-              src="/gallery3.jpg"
-              alt="Project 3"
-              className="h-16 w-auto rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
-            />
-          </Marquee>
-          <a
-            href="#"
-            className="mt-3 px-4 py-2 rounded-xl bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
-          >
-            View My Work
-          </a>
+          <div className="w-full flex flex-col items-center relative">
+            <Marquee
+              speed={25}
+              direction="right"
+              className="my-3 rounded-2xl opacity-20"
+            >
+              <img
+                src={AC}
+                alt="Project 1"
+                className="h-28 w-44 rounded-2xl mx-2 border-2 border-[#a78bfa]/30 shadow"
+                style={{ borderRadius: "35px" }}
+              />
+              <img
+                src={Aiaura}
+                alt="Project 2"
+                className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
+                style={{ borderRadius: "35px" }}
+              />
+              <img
+                src={ReactMini}
+                alt="Project 3"
+                className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
+                style={{ borderRadius: "35px" }}
+              />
+            </Marquee>
+            <a
+              href="#"
+              className="mt-2 px-4 py-2 rounded-xl -translate-y-15 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
+            >
+              View My Work
+            </a>
+          </div>
         </div>
-
         {/* Self details */}
         <div className="col-span-3 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 md:px-4 py-4 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300">
           <div className="flex flex-row items-start w-full max-w-2xl mx-auto mt-0">
@@ -400,7 +410,12 @@ const BentoGridLg = () => {
           <h2 className="text-lg font-bold text-white mt-1 mb-3 tracking-tight">
             Tech Arsenal
           </h2>
-          <Marquee speed={50} direction="right" className="w-full">
+          <Marquee
+            speed={50}
+            direction="right"
+            className="mt-5"
+            autoFill={true}
+          >
             <div className="flex flex-row gap-4 items-center w-full flex-1 justify-start py-1">
               <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#61dafb]/10 min-w-[120px] justify-center">
                 <FaReact className="text-[#61dafb] text-2xl" />
@@ -414,7 +429,7 @@ const BentoGridLg = () => {
                 <FaPython className="text-[#fbe200] text-2xl" />
                 <span className="font-semibold">Python</span>
               </span>
-              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#00758F]/10 min-w-[120px] justify-center">
+              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#00758F]/10 min-w-[120px] justify-center mr-4">
                 <SiMysql className="text-[#00758F] text-2xl" />
                 <span className="font-semibold">MySQL</span>
               </span>
@@ -430,7 +445,7 @@ const BentoGridLg = () => {
           </span>
           <div className="flex flex-col gap-1 w-full mt-2">
             <a
-              href="https://facebook.com/praha37v"
+              href="https://facebook.com/hamza.athar.1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#1877f3]/10 shadow"
@@ -442,20 +457,11 @@ const BentoGridLg = () => {
                 Hamza Athar
               </span>
               <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <svg
-                  width="12"
-                  height="12"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="inline-block"
-                >
-                  <path d="M5 8l2-2 2 2" />
-                </svg>
+                <FaFacebook />
               </span>
             </a>
             <a
-              href="https://instagram.com/praha37v"
+              href="https://www.instagram.com/_hamza_nvm/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#e1306c]/10 shadow"
@@ -467,20 +473,11 @@ const BentoGridLg = () => {
                 @hamza
               </span>
               <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <svg
-                  width="12"
-                  height="12"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="inline-block"
-                >
-                  <path d="M5 8l2-2 2 2" />
-                </svg>
+                <FaInstagram />
               </span>
             </a>
             <a
-              href="https://linkedin.com/in/praha37v"
+              href="https://www.linkedin.com/in/hamza-athar-ezio"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#0077b5]/10 shadow"
@@ -492,16 +489,7 @@ const BentoGridLg = () => {
                 Hamza Athar
               </span>
               <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <svg
-                  width="12"
-                  height="12"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="inline-block"
-                >
-                  <path d="M5 8l2-2 2 2" />
-                </svg>
+                <FaLinkedin />
               </span>
             </a>
           </div>
