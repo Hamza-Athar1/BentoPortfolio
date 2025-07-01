@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import BentoGridLg from "./components/BentoGridLg";
 import BentoGridMd from "./components/BentoGridMd";
 import BentogridXs from "./components/BentogridXs";
+import Navbar from "./components/Navbar";
+import Works from "./pages/Works";
+import Services from "./pages/Services";
 
-function App() {
+function Home() {
   const [screen, setScreen] = useState(getScreen());
 
   function getScreen() {
@@ -31,4 +35,15 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Home />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+    </>
+  );
+}
