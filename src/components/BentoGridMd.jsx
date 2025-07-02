@@ -158,7 +158,7 @@ export default function BentoGridMd() {
                   Works Gallery
                 </div>
                 <div className="w-full flex flex-col items-center relative">
-                  <Marquee className="z-[-1]" direction="right" speed={25}>
+                  <Marquee className="opacity-30" direction="right" speed={25}>
                     <img
                       src={AC}
                       alt="Project 1"

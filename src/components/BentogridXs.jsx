@@ -197,7 +197,7 @@ export default function BentogridXs() {
           Works Gallery
         </h2>
         <div className="w-full flex flex-col items-center relative">
-          <Marquee speed={25} className="mt-2 pb-5 z-[-1]" autoFill={true}>
+          <Marquee speed={25} className="mt-2 pb-5 opacity-30" autoFill={true}>
             <img
               src={AC}
               alt="Project 1"

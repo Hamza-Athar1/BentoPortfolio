@@ -241,7 +241,7 @@ const BentoGridLg = () => {
             <Marquee
               speed={25}
               direction="right"
-              className="my-3 rounded-2xl opacity-20"
+              className="my-3 rounded-2xl opacity-30"
             >
               <img
                 src={AC}
