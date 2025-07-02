@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex justify-center items-center pt-8 pb-4 select-none">
-      <div className="flex bg-[#18181b] border border-[#23232a]/60 rounded-2xl shadow-lg px-2 py-2 gap-2 backdrop-blur-md">
+      <div className="flex bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 border border-[#a78bfa]/10 rounded-2xl shadow-lg px-2 py-2 gap-2 backdrop-blur-md">
         {tabs.map((tab) => {
           const isActive = location.pathname === tab.path;
           return (
@@ -34,10 +34,10 @@ const Navbar = () => {
               className={`flex items-center px-6 py-3 rounded-xl font-semibold text-sm transition
                 ${
                   isActive
-                    ? "bg-[#a78bfa] text-black shadow-md"
-                    : "bg-[#23232a] text-[#a1a1aa] hover:bg-[#23232a]/80 hover:text-white"
+                    ? "bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-[#23232a] shadow-md border-2 border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    : "bg-[#23232a]/80 text-[#a1a1aa] hover:bg-[#a78bfa]/10 hover:text-white border border-[#a78bfa]/10"
                 }
-                border border-[#23232a]/40`}
+              `}
               style={{
                 boxShadow: isActive
                   ? "0 2px 8px 0 rgba(167,139,250,0.10)"

@@ -8,14 +8,14 @@ const images = [AC, Aiaura, ReactMini];
 
 export default function ProjectCarousel() {
   return (
-    <div className="carousel-wrapper">
+    <div className="carousel-wrapper bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 p-4 flex items-center justify-center">
       <div className="carousel-track">
         {[...images, ...images].map((src, i) => (
           <img
             key={i}
             src={src}
             alt={`Project ${i + 1}`}
-            className="carousel-image"
+            className="carousel-image border-2 border-[#a78bfa]/30 shadow object-cover rounded-2xl mx-2"
             style={{
               width: "auto",
               height: "160px",

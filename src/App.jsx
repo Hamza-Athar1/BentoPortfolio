@@ -7,6 +7,7 @@ import BentogridXs from "./components/BentogridXs";
 import Navbar from "./components/Navbar";
 import Works from "./pages/Works";
 import Services from "./pages/Services";
+import Footer from "./components/Footer";
 
 function Home() {
   const [screen, setScreen] = useState(getScreen());
@@ -29,8 +30,12 @@ function Home() {
   return (
     <>
       {screen === "lg" && <BentoGridLg />}
-      {screen === "md" && <BentoGridMd />}
-      {screen === "xs" && <BentogridXs />}
+      {screen !== "lg" && (
+        <>
+          {screen === "md" && <BentoGridMd />}
+          {screen === "xs" && <BentogridXs />}
+        </>
+      )}
     </>
   );
 }
@@ -44,6 +49,7 @@ export default function App() {
         <Route path="/works" element={<Works />} />
         <Route path="/services" element={<Services />} />
       </Routes>
+      <Footer />
     </>
   );
 }

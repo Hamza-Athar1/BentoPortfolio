@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import {
   PiGithubLogoBold,
   PiFacebookLogoBold,
@@ -30,31 +31,23 @@ import {
 } from "react-icons/fa";
 import { SiCplusplus, SiMysql } from "react-icons/si";
 import Marquee from "react-fast-marquee";
+import pfp from "../assets/pfp.jpg";
 import AC from "../assets/AC.png";
 import Aiaura from "../assets/Aiaura.png";
 import ReactMini from "../assets/ReactMini.png";
 const BentoGridLg = () => {
   return (
-    <div className="lg:h-screen lg:w-screen p-1 bg-gradient-to-br from-[#23232a] via-[#18181b] to-[#1e293b] min-h-screen">
-      <div
-        className="
-          grid h-full w-full gap-4
-          lg:grid-cols-6 lg:grid-rows-6
-          bg-transparent text-gray-300
-          rounded-2xl
-          shadow-2xl
-          border border-[#23232a]/40
-          backdrop-blur-md
-        "
-      >
-        {/* Socials */}
-        <div className="col-span-1 row-span-1 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 py-3 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <span className="text-[#fbbf24] text-lg drop-shadow-lg">🤝</span>
-
-          <h2 className="text-[11px] font-bold pb-1 text-white mt-1 tracking-tight">
+    <div className="lg:h-screen lg:w-screen p-1 min-h-screen">
+      <div className="grid h-full w-full gap-4 lg:grid-cols-6 lg:grid-rows-6 bg-transparent text-gray-300 rounded-2xl shadow-2xl border border-[#23232a]/40 backdrop-blur-md">
+        {/* Socials - Top Left Corner */}
+        <div className="slide-in-top col-span-1 row-span-1 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 py-3 text-center hover:scale-[1.04] hover:shadow-violet-900/40 transition-transform duration-300">
+          <span className="fade-in text-[#fbbf24] text-lg drop-shadow-lg">
+            🤝
+          </span>
+          <h2 className="fade-in text-[11px] font-bold pb-1 text-white mt-1 tracking-tight">
             Connect with Me
           </h2>
-          <div className="flex flex-row gap-1 mt-1">
+          <div className="fade-in flex flex-row gap-1 mt-1">
             <a
               href="https://github.com/Hamza-Athar1"
               target="_blank"
@@ -81,52 +74,48 @@ const BentoGridLg = () => {
             </a>
           </div>
         </div>
-
-        {/* No. of Projects */}
-        <div className="col-span-1 row-span-1 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="text-4xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
+        {/* No. of Projects - Top Border */}
+        <div className="slide-in-top col-span-1 row-span-1 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
+          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
             56<span className="text-[#a78bfa] text-2xl">+</span>
           </h2>
-          <div className="flex items-center mt-2">
+          <div className="fade-in flex items-center mt-2">
             <PiFlagBannerFoldFill className="text-[#a78bfa] text-xl mr-2" />
             <p className="text-xs text-[#a1a1aa] font-semibold">Projects</p>
           </div>
         </div>
-
-        {/* Clients */}
-        <div className="col-span-1 row-span-1 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="text-4xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
+        {/* Clients - Top Right Corner */}
+        <div className="slide-in-right col-span-1 row-span-1 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
+          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
             12<span className="text-[#a78bfa] text-2xl">+</span>
           </h2>
-          <div className="flex items-center mt-2">
+          <div className="fade-in flex items-center mt-2">
             <PiCampfire className="text-[#fbbf24] text-xl mr-2" />
             <p className="text-xs text-[#a1a1aa] font-semibold">Clients</p>
           </div>
         </div>
-
-        {/* Experience */}
-        <div className="col-span-1 row-span-1 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="text-4xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
+        {/* Experience - Right Border */}
+        <div className="slide-in-right col-span-1 row-span-1 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
+          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
             5<span className="text-[#a78bfa] text-2xl">+</span>
           </h2>
-          <div className="flex items-center mt-2">
+          <div className="fade-in flex items-center mt-2">
             <PiCalendarCheckDuotone className="text-[#34d399] text-xl mr-2" />
             <p className="text-xs text-[#a1a1aa] font-semibold">YOE</p>
           </div>
         </div>
-
-        {/* Achievements */}
-        <div className="col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
-          <span className="text-[#a78bfa] text-2xl drop-shadow-lg mb-1">
+        {/* Achievements - Left Border */}
+        <div className="slide-in-left col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
+          <span className="fade-in text-[#a78bfa] text-2xl drop-shadow-lg mb-1">
             🏆
           </span>
-          <span className="text-[10px] text-[#a1a1aa] font-semibold tracking-wider uppercase">
+          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold tracking-wider uppercase">
             Highlights
           </span>
-          <h2 className="text-lg font-bold text-white mt-1 tracking-tight">
+          <h2 className="fade-in text-lg font-bold text-white mt-1 tracking-tight">
             Achievements
           </h2>
-          <div className="flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
+          <div className="fade-in flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
             <ul className="text-xs mt-2 text-[#a1a1aa] text-left list-disc list-inside w-full max-w-[90%] mx-auto space-y-1">
               <li>
                 <span className="font-semibold text-white">
@@ -151,18 +140,18 @@ const BentoGridLg = () => {
             </span>
           </div>
         </div>
-
-        {/* (Workflow Highlights) */}
-        <div className="col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
-          {/* Swapped: Workflow Highlights content */}
-          <span className="text-[#a78bfa] text-xl drop-shadow-lg">🤝</span>
-          <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
+        {/* Workflow Highlights - Center (random slide-in-bottom) */}
+        <div className="slide-in-bottom col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
+          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
+            🤝
+          </span>
+          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
             Workflow
           </span>
-          <h2 className="text-lg font-bold text-white mt-1 tracking-tight">
+          <h2 className="fade-in text-lg font-bold text-white mt-1 tracking-tight">
             Workflow Highlights
           </h2>
-          <div className="flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
+          <div className="fade-in flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
             <div className="w-full flex flex-col gap-2 mt-2 max-w-lg pr-1">
               {/* Step 1 */}
               <div className="group relative flex items-start gap-3 bg-[#23232a]/80 rounded-xl px-3 py-2 border border-[#a78bfa]/10 shadow cursor-pointer">
@@ -174,7 +163,7 @@ const BentoGridLg = () => {
                     Goals & Objectives
                   </div>
                   {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-56">
+                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-100 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
                     Defining project aims and target outcomes to guide design.
                   </div>
                 </div>
@@ -189,7 +178,7 @@ const BentoGridLg = () => {
                     Research
                   </div>
                   {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-56">
+                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
                     Gathering insights, analyzing competitors, and understanding
                     user needs to inform the project direction.
                   </div>
@@ -205,7 +194,7 @@ const BentoGridLg = () => {
                     Wireframe
                   </div>
                   {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-56">
+                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
                     Creating low-fidelity layouts to map out structure,
                     navigation, and user flow before visual design.
                   </div>
@@ -219,7 +208,7 @@ const BentoGridLg = () => {
                 <div className="text-left flex-1">
                   <div className="text-xs font-semibold text-white">Design</div>
                   {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-56">
+                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
                     Developing high-fidelity visuals, refining UI elements, and
                     ensuring a cohesive and engaging user experience.
                   </div>
@@ -228,16 +217,18 @@ const BentoGridLg = () => {
             </div>
           </div>
         </div>
-        {/* Gallery */}
-        <div className="col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="text-[#a78bfa] text-xl drop-shadow-lg">🖼️</span>
-          <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
+        {/* Gallery - Right Border */}
+        <div className="slide-in-right col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
+          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
+            🖼️
+          </span>
+          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
             Showcase
           </span>
-          <h2 className="text-base font-bold text-white mt-1 tracking-tight">
+          <h2 className="fade-in text-base font-bold text-white mt-1 tracking-tight">
             Works Gallery
           </h2>
-          <div className="w-full flex flex-col items-center relative">
+          <div className="fade-in w-full flex flex-col items-center relative">
             <Marquee
               speed={25}
               direction="right"
@@ -262,20 +253,20 @@ const BentoGridLg = () => {
                 style={{ borderRadius: "35px" }}
               />
             </Marquee>
-            <a
-              href="#"
-              className="mt-2 px-4 py-2 rounded-xl -translate-y-15 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
+            <Link
+              to="/works"
+              className="mt-2 px-3 py-1 rounded-lg -translate-y-15 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-[14px] font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
             >
               View My Work
-            </a>
+            </Link>
           </div>
         </div>
-        {/* Self details */}
-        <div className="col-span-3 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 md:px-4 py-4 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300">
-          <div className="flex flex-row items-start w-full max-w-2xl mx-auto mt-0">
+        {/* Self details - Center (random slide-in-left) */}
+        <div className="slide-in-left col-span-3 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 md:px-4 py-4 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300">
+          <div className="fade-in flex flex-row items-start w-full max-w-2xl mx-auto mt-0">
             {/* Profile Image */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#a78bfa] to-[#fbbf24] flex-shrink-0 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
-              {/* Replace with <img src="..." /> for real image */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-[#a78bfa]   flex-shrink-0 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
+              <img src={pfp} className="object-cover" />
               <div className="w-full h-full bg-[#a78bfa] opacity-80" />
             </div>
             {/* Status and Resume */}
@@ -312,8 +303,7 @@ const BentoGridLg = () => {
               </div>
             </div>
           </div>
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-4 w-full bg-[#15151a]/80 rounded-2xl px-2 md:px-4 py-2 justify-center border border-[#a78bfa]/10 shadow">
+          <div className="fade-in flex flex-wrap gap-2 mt-4 w-full bg-[#15151a]/80 rounded-2xl px-2 md:px-4 py-2 justify-center border border-[#a78bfa]/10 shadow">
             <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
               <PiCertificateFill className="w-4 h-4 text-[#a78bfa]" />
               Bahria University
@@ -335,8 +325,7 @@ const BentoGridLg = () => {
               PKT
             </span>
           </div>
-          {/* Buttons */}
-          <div className="flex flex-row gap-2 md:gap-3 mt-4 w-full max-w-2xl justify-center">
+          <div className="fade-in flex flex-row gap-2 md:gap-3 mt-4 w-full max-w-2xl justify-center">
             <a
               className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#a78bfa]/80 to-[#23232a]/80 rounded-xl py-2 px-2 text-[#a78bfa] font-semibold text-xs md:text-sm hover:from-[#b794f4] hover:to-[#28282d] transition min-w-0 border border-[#a78bfa]/20 shadow"
               href="https://www.linkedin.com/in/hamza-athar-ezio"
@@ -359,18 +348,23 @@ const BentoGridLg = () => {
             </a>
           </div>
         </div>
-
-        {/* Services */}
-        <div className="col-span-1 row-span-3 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="text-[#a78bfa] text-xl drop-shadow-lg">💼</span>
-          <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
+        {/* Services - Bottom Border */}
+        <div className="slide-in-bottom col-span-1 row-span-3 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
+          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
+            💼
+          </span>
+          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
             What I Offer
           </span>
-          <h2 className="text-base font-bold text-white mt-1 tracking-tight">
+          <h2 className="fade-in text-base font-bold text-white mt-1 tracking-tight mb-2">
             Services
           </h2>
-
-          <Marquee pauseOnHover gradient={false} speed={40} className="mt-4">
+          <Marquee
+            pauseOnHover
+            gradient={false}
+            speed={40}
+            className="fade-in "
+          >
             <span className="flex items-center gap-6">
               <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
                 <PiGlobeHemisphereWestFill className="text-white text-xl" />
@@ -402,18 +396,25 @@ const BentoGridLg = () => {
               </span>
             </span>
           </Marquee>
+          <Link
+            to="/services"
+            className="fade-in translate-y-3 px-3 py-1 rounded-lg bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-[12px] font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
+          >
+            View My Services
+          </Link>
         </div>
-
-        {/* TechStack */}
-        <div className="col-span-3 row-span-3 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300 overflow-hidden">
-          <span className="text-[#61dafb] text-xl drop-shadow-lg mb-1">🛠️</span>
-          <h2 className="text-lg font-bold text-white mt-1 mb-3 tracking-tight">
+        {/* TechStack - Bottom Border */}
+        <div className="slide-in-bottom col-span-3 row-span-3 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300 overflow-hidden">
+          <span className="fade-in text-[#61dafb] text-xl drop-shadow-lg mb-1">
+            🛠️
+          </span>
+          <h2 className="fade-in text-lg font-bold text-white mt-1 mb-3 tracking-tight">
             Tech Arsenal
           </h2>
           <Marquee
             speed={50}
             direction="right"
-            className="mt-5"
+            className="fade-in mt-5"
             autoFill={true}
           >
             <div className="flex flex-row gap-4 items-center w-full flex-1 justify-start py-1">
@@ -436,14 +437,15 @@ const BentoGridLg = () => {
             </div>
           </Marquee>
         </div>
-        {/* Online Presence */}
-        <div className="col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 py-2 sm:py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="text-[#a78bfa] text-xl drop-shadow-lg">✨</span>
-
-          <span className="text-xs font-semibold text-white mt-1 tracking-tight">
+        {/* Online Presence - Left Border */}
+        <div className="slide-in-left col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 py-2 sm:py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
+          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
+            ✨
+          </span>
+          <span className="fade-in text-xs font-semibold text-white mt-1 tracking-tight">
             Online Presence
           </span>
-          <div className="flex flex-col gap-1 w-full mt-2">
+          <div className="fade-in flex flex-col gap-1 w-full mt-2">
             <a
               href="https://facebook.com/hamza.athar.1"
               target="_blank"
@@ -494,20 +496,21 @@ const BentoGridLg = () => {
             </a>
           </div>
         </div>
-
-        {/* Contact me */}
-        <div className="col-span-1 row-span-3 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-2 py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="text-[#34d399] text-xl drop-shadow-lg">📬</span>
-          <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
+        {/* Contact me - Bottom Left Corner */}
+        <div className="slide-in-left col-span-1 row-span-3 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-2 py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
+          <span className="fade-in text-[#34d399] text-xl drop-shadow-lg">
+            📬
+          </span>
+          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
             Get in Touch
           </span>
-          <h2 className="text-sm font-bold text-white mt-1 tracking-tight">
+          <h2 className="fade-in text-sm font-bold text-white mt-1 tracking-tight">
             Contact
           </h2>
-          <p className="text-xs mt-1 text-[#a1a1aa]">
+          <p className="fade-in text-xs mt-1 text-[#a1a1aa]">
             Let's Make Magic Happen Together!
           </p>
-          <div className="w-full flex flex-col gap-2 mt-2">
+          <div className="fade-in w-full flex flex-col gap-2 mt-2">
             <a
               href="mailto:atharhamza559@gmail.com"
               className="flex items-center gap-2 bg-[#23232a]/80 hover:bg-[#28282d] transition rounded-xl px-2 py-1 text-white font-semibold text-xs justify-center min-w-0 border border-[#a78bfa]/10 shadow"

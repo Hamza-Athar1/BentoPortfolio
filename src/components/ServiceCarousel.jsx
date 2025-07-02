@@ -25,14 +25,14 @@ export default function ServicesCarousel() {
   return (
     <div className="w-full flex flex-col items-center">
       <div
-        className="carousel-wrapper"
+        className="carousel-wrapper bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 p-2"
         style={{ width: "220px", height: "100px" }}
       >
         <div className="carousel-track">
           {items.map((service, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center w-[120px] h-16 flex-shrink-0 mx-1"
+              className="flex flex-col items-center justify-center w-[120px] h-16 flex-shrink-0 mx-1 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 shadow"
             >
               {service.icon}
               <span className="text-gray-200 text-xs mt-1">{service.name}</span>
@@ -40,7 +40,7 @@ export default function ServicesCarousel() {
           ))}
         </div>
       </div>
-      <button className="mt-4 px-5 py-2 rounded-xl bg-[#a78bfa] text-black text-xs font-semibold hover:bg-[#b794f4] transition">
+      <button className="mt-4 px-5 py-2 rounded-xl bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow border border-[#a78bfa]/20">
         View All Services
       </button>
     </div>

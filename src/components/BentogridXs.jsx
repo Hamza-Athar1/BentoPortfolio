@@ -34,32 +34,34 @@ import {
 } from "react-icons/fa";
 import { SiCplusplus, SiMysql } from "react-icons/si";
 import Navbar from "./Navbar";
+import pfp from "../assets/pfp.jpg"; // Updated to use the correct profile image
+import { Link } from "react-router";
 
 export default function BentogridXs() {
   return (
     <div className="flex flex-col items-center min-h-[120vh] text-white py-8 px-2">
       <Navbar />
-      <div className="w-full max-w-md bg-[#15151a] rounded-2xl shadow-2xl border border-[#23232a]/40 p-6 flex flex-col items-center">
+      <div className="slide-in-top w-full max-w-md bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-2xl border border-[#a78bfa]/10 p-6 flex flex-col items-center">
         {/* Profile Image */}
-        <div className="w-24 h-24 rounded-xl bg-[#a78bfa] flex items-center justify-center mb-3 overflow-hidden">
-          {/* Replace with <img src="..." alt="Pragadeswaran" className="w-full h-full object-cover" /> for real image */}
+        <div className="fade-in w-24 h-24 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#fbbf24] flex items-center justify-center mb-3 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
+          <img src={pfp} />
           <div className="w-full h-full bg-[#a78bfa] opacity-80" />
         </div>
         {/* Status */}
-        <span className="flex items-center bg-[#23232a] px-3 py-1 rounded-full text-xs text-[#a1a1aa] font-semibold mb-2 border border-[#34d399]/20 shadow">
+        <span className="fade-in flex items-center bg-[#23232a]/80 px-3 py-1 rounded-full text-xs text-[#a1a1aa] font-semibold mb-2 border border-[#34d399]/20 shadow">
           <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
           Available To Work
         </span>
         {/* Name */}
-        <div className="text-xl font-bold text-white mb-1 text-center">
+        <div className="fade-in text-xl font-bold text-white mb-1 text-center">
           Ameer Hamza Athar
         </div>
         {/* Subtitle */}
-        <div className="text-sm text-[#a1a1aa] mb-3 text-center">
+        <div className="fade-in text-sm text-[#a1a1aa] mb-3 text-center">
           I am a <span className="text-[#a78bfa] font-semibold">developer</span>
         </div>
         {/* Tags */}
-        <div className="w-full bg-[#18181b] rounded-2xl px-2 py-3 flex flex-wrap gap-2 justify-center border border-[#23232a]/60 mb-4">
+        <div className="fade-in w-full bg-[#18181b] rounded-2xl px-2 py-3 flex flex-wrap gap-2 justify-center border border-[#23232a]/60 mb-4">
           <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a] text-xs text-[#a1a1aa] border border-[#23232a]/40">
             <PiMapPinFill className="w-4 h-4 text-[#a78bfa]" />
             Pakistan
@@ -86,18 +88,18 @@ export default function BentogridXs() {
           </span>
         </div>
         {/* Buttons */}
-        <div className="flex flex-row gap-3 w-full mt-2">
+        <div className="fade-in flex flex-row gap-3 w-full mt-2">
           <a
-            href="https://t.me/yourtelegram"
+            href="https://www.linkedin.com/in/hamza-athar-ezio/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-[#23232a] rounded-xl py-3 text-[#a78bfa] font-semibold text-sm hover:bg-[#28282d] transition border border-[#23232a]/40 shadow"
           >
-            <PiTelegramLogo className="w-5 h-5" />
-            Telegram Me
+            <PiFlagBannerFoldFill className="w-5 h-5" />
+            Connect With Me
           </a>
           <a
-            href="https://wa.me/yourwhatsapp"
+            href="https://wa.me/+923180535566"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 bg-[#23232a] rounded-xl py-3 text-[#a78bfa] font-semibold text-sm hover:bg-[#28282d] transition border border-[#23232a]/40 shadow"
@@ -107,9 +109,9 @@ export default function BentogridXs() {
           </a>
         </div>
       </div>
-      <div className="w-full max-w-md mt-6 grid grid-cols-3 gap-4">
+      <div className="slide-in-bottom w-full max-w-md mt-6 grid grid-cols-3 gap-4">
         {/* No of Projects */}
-        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 px-0 py-4">
+        <div className="slide-in-left flex flex-col items-center justify-center bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 px-0 py-4">
           <span className="text-3xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
             56<span className="text-[#a78bfa] text-xl">+</span>
           </span>
@@ -121,7 +123,7 @@ export default function BentogridXs() {
           </div>
         </div>
         {/* Clients */}
-        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 px-0 py-4">
+        <div className="slide-in-top flex flex-col items-center justify-center bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 px-0 py-4">
           <span className="text-3xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
             23<span className="text-[#a78bfa] text-xl">+</span>
           </span>
@@ -133,7 +135,7 @@ export default function BentogridXs() {
           </div>
         </div>
         {/* YOE */}
-        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 px-0 py-4">
+        <div className="slide-in-right flex flex-col items-center justify-center bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 px-0 py-4">
           <span className="text-3xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
             6<span className="text-[#a78bfa] text-xl">+</span>
           </span>
@@ -144,7 +146,7 @@ export default function BentogridXs() {
         </div>
       </div>
       {/* Resume Download Button */}
-      <div className="w-full max-w-md mt-4">
+      <div className="fade-in w-full max-w-md mt-4">
         <a
           href="/AMEER_HAMZA_RESUME.pdf"
           download
@@ -158,7 +160,7 @@ export default function BentogridXs() {
       </div>
 
       {/* Tech Arsenal Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center px-4 py-8 text-center">
+      <div className="slide-in-left w-full max-w-md mt-6 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center px-4 py-8 text-center">
         <span className="text-[#61dafb] text-xl drop-shadow-lg mb-1">🛠️</span>
         <span className="text-[10px] text-[#a1a1aa] font-semibold tracking-wider uppercase">
           My Tools
@@ -188,7 +190,7 @@ export default function BentogridXs() {
         </Marquee>
       </div>
       {/* Works Gallery Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center  px-4 py-8 text-center min-h-[260px]">
+      <div className="slide-in-right w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center  px-4 py-8 text-center min-h-[260px]">
         <span className="text-[#a78bfa] text-xl drop-shadow-lg">🖼️</span>
         <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
           Showcase
@@ -214,16 +216,16 @@ export default function BentogridXs() {
               className="h-35 w-55 rounded-2xl mx-2 border-2 border-[#a78bfa]/30 shadow"
             />
           </Marquee>
-          <a
-            href="#"
+          <Link
+            to="/works"
             className="mt-3 px-4 py-2 absolute left-1/2 -translate-x-1/2 translate-y-23 rounded-xl bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
           >
             View My Work
-          </a>
+          </Link>
         </div>
       </div>
       {/* Workflow Highlights Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-6 text-center">
+      <div className="slide-in-bottom w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-6 text-center">
         <span className="text-[#a78bfa] text-xl drop-shadow-lg">🤝</span>
         <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
           Workflow
@@ -288,7 +290,7 @@ export default function BentogridXs() {
         </div>
       </div>
       {/* Services Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
+      <div className="slide-in-top w-full max-w-md mt-6 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
         <span className="text-[#a78bfa] text-xl drop-shadow-lg">💼</span>
         <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
           What I Offer
@@ -328,7 +330,7 @@ export default function BentogridXs() {
         </Marquee>
       </div>
       {/* Mini Timeline Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
+      <div className="fade-in w-full max-w-md mt-6 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
         <div className="text-white font-semibold text-lg mb-3">
           Mini Timeline
         </div>
@@ -362,7 +364,7 @@ export default function BentogridXs() {
         </ol>
       </div>
       {/* Achievements Section */}
-      <div className="w-full max-w-md mt-6 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
+      <div className="slide-in-left w-full max-w-md mt-6 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-4 py-8 text-center">
         <span className="text-[#a78bfa] text-2xl drop-shadow-lg mb-1">🏆</span>
         <span className="text-[10px] text-[#a1a1aa] font-semibold tracking-wider uppercase">
           Achievements
@@ -382,9 +384,9 @@ export default function BentogridXs() {
         </span>
       </div>
       {/* Online Presence & Let's Work Together Section */}
-      <div className="w-full max-w-md mt-6 flex flex-col md:flex-row gap-6">
+      <div className="slide-in-bottom w-full max-w-md mt-6 flex flex-col md:flex-row gap-6">
         {/* Online Presence */}
-        <div className="flex-1 bg-gradient-to-br from-[#23232a]/90 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#61dafb]/10 flex flex-col items-center px-5 py-7 text-center transition hover:scale-[1.02] hover:shadow-2xl">
+        <div className="slide-in-left flex-1 bg-gradient-to-br from-[#23232a]/90 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#61dafb]/10 flex flex-col items-center px-5 py-7 text-center transition hover:scale-[1.02] hover:shadow-2xl">
           <span className="text-[#61dafb] text-2xl drop-shadow-lg mb-1">
             ✨
           </span>
@@ -437,7 +439,7 @@ export default function BentogridXs() {
           </div>
         </div>
         {/* Let's Work Together */}
-        <div className="flex-1 bg-gradient-to-br from-[#fbbf24]/20 to-[#23232a]/90 rounded-2xl shadow-lg border border-[#fbbf24]/20 flex flex-col items-center px-5 py-7 text-center transition hover:scale-[1.02] hover:shadow-2xl">
+        <div className="slide-in-right flex-1 bg-gradient-to-br from-[#fbbf24]/20 to-[#23232a]/90 rounded-2xl shadow-lg border border-[#fbbf24]/20 flex flex-col items-center px-5 py-7 text-center transition hover:scale-[1.02] hover:shadow-2xl">
           <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#fbbf24] flex items-center justify-center mb-4 shadow-lg">
             <PiFlagBannerFoldFill className="text-3xl text-[#a78bfa]" />
           </div>
@@ -455,17 +457,6 @@ export default function BentogridXs() {
               <FaEnvelope className="text-xl text-[#a78bfa] mr-1 group-hover:scale-110 transition-transform" />
               <span className="group-hover:text-[#a78bfa] transition">
                 Email Me
-              </span>
-            </a>
-            <a
-              href="https://calendly.com/hamzaathar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-[#23232a]/90 hover:bg-[#28282d] transition rounded-xl px-2 py-3 text-white font-semibold justify-center border border-[#a78bfa]/10 shadow group"
-            >
-              <FaCalendarAlt className="text-xl text-[#a78bfa] mr-1 group-hover:scale-110 transition-transform" />
-              <span className="group-hover:text-[#a78bfa] transition">
-                Schedule a Call
               </span>
             </a>
           </div>

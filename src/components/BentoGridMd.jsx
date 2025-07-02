@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCarousel from "./Carousel";
+import pfp from "../assets/pfp.jpg";
 import Marquee from "react-fast-marquee";
 import AC from "../assets/AC.png";
 import Aiaura from "../assets/Aiaura.png";
@@ -28,6 +28,7 @@ import { SiReact, SiCplusplus, SiPython, SiMysql } from "react-icons/si";
 import { BsStack } from "react-icons/bs";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { IoBookmarksSharp } from "react-icons/io5";
+import { Link } from "react-router";
 function DropdownStep({ icon, title, description, defaultOpen }) {
   const [open, setOpen] = React.useState(!!defaultOpen);
   const [height, setHeight] = React.useState(0);
@@ -98,13 +99,13 @@ function DropdownStep({ icon, title, description, defaultOpen }) {
 }
 export default function BentoGridMd() {
   return (
-    <div className="min-h-screen w-full p-1 bg-gradient-to-br from-[#23232a] via-[#18181b] to-[#1e293b]">
+    <div className="min-h-screen w-full p-1 bg-gradient-to-br from-[#18181e] via-[#15151a] to-[#23232a] text-white">
       <div className="flex flex-col gap-4 max-w-7xl mx-auto">
         <div className="flex flex-row gap-4">
-          {/* Left Column */}
-          <div className="flex flex-col w-[48%] min-h-screen rounded-2xl shadow-2xl border border-[#23232a]/40 backdrop-blur-md gap-4 bg-transparent">
-            {/* Stack Card */}
-            <div id="card1" className="p-2 text-center">
+          {/* Left Column - slide-in-left */}
+          <div className="slide-in-left flex flex-col w-[48%] min-h-screen rounded-2xl shadow-2xl border border-[#a78bfa]/10 backdrop-blur-md gap-4 bg-transparent">
+            {/* Stack Card - fade-in */}
+            <div id="card1" className="fade-in p-2 text-center">
               <div className="bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#a78bfa]/10 flex flex-col items-center text-gray-300">
                 <div className="flex items-center gap-2 mb-2">
                   <BsStack className="text-lg text-[#a78bfa]" />
@@ -145,8 +146,8 @@ export default function BentoGridMd() {
                 </Marquee>
               </div>
             </div>
-            {/* Projects Card */}
-            <div id="card2" className="p-2 text-center">
+            {/* Projects Card - fade-in */}
+            <div id="card2" className="fade-in p-2 text-center">
               <div className="bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#a78bfa]/10 flex flex-col items-center text-gray-300">
                 <div className="flex items-center gap-2 mb-2">
                   <PiCampfire className="text-lg text-[#fbbf24]" />
@@ -178,18 +179,18 @@ export default function BentoGridMd() {
                       style={{ borderRadius: "35px" }}
                     />
                   </Marquee>
-                  <a
-                    href="#"
+                  <Link
+                    to="/works"
                     className="px-5 py-2 rounded-xl absolute left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-xs font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
                     style={{ bottom: "12px" }}
                   >
                     View My Work
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
-            {/* Events Card */}
-            <div id="card3" className="p-2 text-center">
+            {/* Events Card - fade-in */}
+            <div id="card3" className="fade-in p-2 text-center">
               <div className="bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#a78bfa]/10 flex flex-col items-center text-gray-300">
                 <div className="flex items-center gap-2 mb-2">
                   <PiCalendarCheckDuotone className="text-lg text-[#34d399]" />
@@ -238,12 +239,20 @@ export default function BentoGridMd() {
                 </Marquee>
               </div>
             </div>
+            {/* Quote below Services card - fade-in */}
+            <div className="fade-in w-full flex justify-center mt-2">
+              <blockquote className="italic text-[#a1a1aa] text-sm bg-[#23232a]/70 rounded-xl px-6 py-3 border-l-4 border-[#a78bfa] shadow max-w-md">
+                "Great design is achieved not when there is nothing more to add,
+                but when there is nothing left to take away."
+              </blockquote>
+            </div>
+            {/* End Quote */}
           </div>
-          {/* Right Column */}
-          <div className="flex flex-col w-[52%] min-h-screen pt-2 pr-2 rounded-2xl shadow-2xl border border-[#23232a]/40 backdrop-blur-md bg-transparent">
+          {/* Right Column - slide-in-right */}
+          <div className="slide-in-right flex flex-col w-[52%] min-h-screen pt-2 pr-2 rounded-2xl shadow-2xl border border-[#23232a]/40 backdrop-blur-md bg-transparent">
             <div
               id="card4"
-              className="flex flex-row justify-center gap-4 w-full"
+              className="fade-in flex flex-row justify-center gap-4 w-full"
             >
               {/* Projects */}
               <div className="bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl px-6 py-8 shadow-lg border border-[#a78bfa]/10 flex flex-col items-center flex-1 text-gray-300">
@@ -278,12 +287,13 @@ export default function BentoGridMd() {
             </div>
             <div
               id="card5"
-              className="flex flex-col items-center justify-center bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl px-4 py-6 shadow-lg border border-[#a78bfa]/10 mt-4 w-full max-w-3xl mx-auto text-gray-300"
+              className="fade-in flex flex-col items-center justify-center bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl px-4 py-6 shadow-lg border border-[#a78bfa]/10 mt-4 w-full max-w-3xl mx-auto text-gray-300"
             >
               {/* Top Section */}
               <div className="flex flex-col sm:flex-row items-start w-full gap-4">
                 {/* Profile Image */}
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#a78bfa] to-[#fbbf24] flex-shrink-0 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
+                <div className="w-20 h-20 rounded-2xl bg-[#a78bfa] flex-shrink-0 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
+                  <img src={pfp} className="" />
                   <div className="w-full h-full bg-[#a78bfa] opacity-80" />
                 </div>
 
@@ -373,7 +383,7 @@ export default function BentoGridMd() {
             </div>
             <div
               id="card6"
-              className="flex flex-col items-center justify-center bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl px-8 py-8 shadow-lg border border-[#a78bfa]/10 mt-4"
+              className="fade-in flex flex-col items-center justify-center bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl px-8 py-8 shadow-lg border border-[#a78bfa]/10 mt-4"
             >
               {/* Achievements Card */}
               <div className="w-full flex flex-col items-center">
@@ -402,7 +412,7 @@ export default function BentoGridMd() {
         </div>
         {/* Bottom Grids */}
         <div className="flex flex-row gap-4 px-2">
-          <div className="h-80 flex-[3] bg-[#15151a]/80 rounded-2xl shadow-xl border border-[#23232a]/40">
+          <div className="slide-in-left h-80 flex-[3] bg-[#15151a]/80 rounded-2xl shadow-xl border border-[#23232a]/40">
             {/* Mini Timeline */}
             <div className="h-full flex flex-col justify-center px-8">
               <div className="text-white font-semibold text-lg mb-3">
@@ -448,7 +458,7 @@ export default function BentoGridMd() {
               </ol>
             </div>
           </div>
-          <div className="h-80 flex-[2] bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-xl border border-[#a78bfa]/10 flex items-center justify-center">
+          <div className="slide-in-right h-80 flex-[2] bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-xl border border-[#a78bfa]/10 flex items-center justify-center">
             {/* Workflow Highlights Card */}
             <div className="w-full max-w-xs mx-auto flex flex-col gap-2 relative px-2 py-2">
               {/* Header */}
@@ -512,7 +522,7 @@ export default function BentoGridMd() {
           </div>
         </div>
         <div className="flex flex-row gap-4 px-2">
-          <div className="h-80 flex-[2] text-white bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-xl border border-[#a78bfa]/10 flex flex-col items-center justify-center p-6">
+          <div className="slide-in-left h-80 flex-[2] text-white bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-xl border border-[#a78bfa]/10 flex flex-col items-center justify-center p-6">
             {/* Online Presence Card */}
             <div className="w-full max-w-xs mx-auto">
               <div className="flex flex-col items-center mb-4">
@@ -528,7 +538,7 @@ export default function BentoGridMd() {
               </div>
               <div className="flex flex-col gap-3">
                 <a
-                  href="https://facebook.com/praha37v"
+                  href="https://facebook.com/hamza.athar.1/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center bg-[#23232a]/80 rounded-xl px-4 py-3 gap-3 hover:bg-[#28282d] transition border border-[#1877f3]/10 shadow"
@@ -578,7 +588,7 @@ export default function BentoGridMd() {
               </div>
             </div>
           </div>
-          <div className="h-80 flex-[3] bg-[#15151a]/80 rounded-2xl shadow-xl border border-[#23232a]/40 flex items-center justify-center">
+          <div className="slide-in-right h-80 flex-[3] bg-[#15151a]/80 rounded-2xl shadow-xl border border-[#23232a]/40 flex items-center justify-center">
             {/* Let's Work Together Card */}
             <div className="w-full max-w-md mx-auto flex flex-col items-center bg-transparent">
               <div className="flex flex-col items-center">
@@ -601,16 +611,6 @@ export default function BentoGridMd() {
                   {/* Email Icon */}
                   <PiEnvelopeSimpleFill className="text-xl text-[#a78bfa]" />
                   Email Me
-                </a>
-                <a
-                  href="https://calendly.com/hamzaathar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-[#23232a]/80 hover:bg-[#28282d] transition rounded-xl px-2 py-3 text-white font-semibold justify-center border border-[#a78bfa]/10 shadow"
-                >
-                  {/* Calendar Icon */}
-                  <PiCalendarCheckDuotone className="text-xl text-[#a78bfa]" />
-                  Schedule a Call
                 </a>
               </div>
             </div>
