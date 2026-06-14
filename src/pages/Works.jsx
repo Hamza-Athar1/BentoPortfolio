@@ -4,6 +4,7 @@ import AC from "../assets/AC.png";
 import pfp from "../assets/pfp.jpg";
 import Aiaura from "../assets/Aiaura.png";
 import ReactMini from "../assets/ReactMini.png";
+import CDL from "../assets/CDL.png";
 import {
   FaGithub,
   FaLinkedin,
@@ -38,517 +39,451 @@ import {
   FaPalette,
   FaBullseye,
   FaSun,
-  FaGem as FaGemSolid,
 } from "react-icons/fa";
 import { SiCplusplus, SiQt, SiMysql } from "react-icons/si";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router";
+
+const cardBase = {
+  background:
+    "linear-gradient(145deg, rgba(30,30,42,0.9) 0%, rgba(15,15,22,0.95) 100%)",
+  border: "1px solid rgba(167,139,250,0.12)",
+  backdropFilter: "blur(12px)",
+};
+
+const projects = [
+  {
+    img: Aiaura,
+    title: "AIAURA",
+    category: "Business",
+    url: "https://aiaura.co.uk/",
+    desc: "AI-powered aura reading platform for business insights.",
+  },
+  {
+    img: ReactMini,
+    title: "React Mini Projects",
+    category: "Personal",
+    url: "https://mini-react-projects-six.vercel.app/",
+    desc: "Collection of interactive React components and projects.",
+  },
+  {
+    img: AC,
+    title: "Assassins Creed Website",
+    category: "Fan-site",
+    url: "https://assassins-creed-two.vercel.app/",
+    desc: "Immersive fan website recreating the AC universe.",
+  },
+  {
+    img: CDL,
+    title: "FreeCDLTests",
+    category: "Business",
+    url:"https://freecdltests.com/",
+    desc: "Comprehensive CDL practice tests for aspiring truck drivers.",
+  }
+];
+
 export default function Works() {
   return (
-    <div className="slide-in-top min-h-screen w-full bg-gradient-to-br from-[#18181e] via-[#15151a] to-[#23232a] text-white">
-      <div className="flex flex-col items-center min-h-[120vh] py-8 px-2">
-        <Navbar />
-        {/* Improved Responsive 2-column layout on large screens */}
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 mt-4">
-          {/* Left: My Top Projects, Profile, Fun Fact, Quote */}
-          <div className="slide-in-left col-span-12 lg:col-span-5 flex flex-col">
-            <div className="fade-in bg-gradient-to-br from-[#18181e] to-[#23232a] rounded-2xl shadow-2xl border border-[#a78bfa]/10 p-6 flex flex-col items-center w-full">
-              {/* My Works Header */}
-              <div className="w-full flex flex-col items-center mb-6">
-                <span className="text-violet-300 flex items-center gap-2 text-base mb-1">
-                  <FaTrophy />
-                  My Works
-                </span>
-                <h2 className="text-2xl font-bold text-center">
-                  My Top Projects
-                </h2>
-              </div>
-              {/* Project Cards */}
-              <div className="w-full flex flex-col gap-4">
-                {/* Project 1 */}
-                <div className="bg-[#23232a]/90 rounded-2xl p-4 flex flex-col gap-3 border border-[#a78bfa]/10 shadow-lg">
-                  <div className="rounded-xl overflow-hidden">
-                    <img
-                      src={Aiaura}
-                      alt="Aiaura"
-                      className="w-full h-32 object-cover opacity-50 rounded-xl border border-[#a78bfa]/20"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">
-                          AIAURA
-                        </h3>
-                        <span className="text-sm text-gray-400">Business</span>
-                      </div>
-                      <a
-                        href="https://aiaura.co.uk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <button className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-[#a78bfa]/30 to-[#23232a] border border-[#a78bfa]/20 hover:bg-[#1a1a20] transition shadow">
-                          <FaExternalLinkAlt className="text-violet-300" />
-                        </button>
-                      </a>
-                    </div>
-                  </div>
+    <div
+      className="min-h-screen w-full"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f0f14 0%, #13131a 50%, #1a1a24 100%)",
+      }}
+    >
+      <div className="flex flex-col items-center pb-12 px-3">
+        <div className="w-full max-w-7xl">
+          <Navbar />
+
+          {/* Page Header */}
+          <div className="slide-in-top text-center mb-10">
+            <div className="flex items-center justify-center gap-2 text-[#a78bfa] text-sm font-semibold mb-2">
+              <FaTrophy />
+              <span>Portfolio</span>
+            </div>
+            <h1 className="text-4xl font-black text-white tracking-tight mb-3">
+              My{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg,#a78bfa,#fbbf24)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Works
+              </span>
+            </h1>
+            <p className="text-[#8b8ba0] text-base max-w-lg mx-auto">
+              A curated selection of projects that showcase my skills and
+              passion for building great digital experiences.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {/* Left Column */}
+            <div className="slide-in-left lg:col-span-5 flex flex-col gap-6 h-full lg:justify-between">
+              {/* Projects */}
+              <div className="bento-card rounded-2xl p-6" style={cardBase}>
+                <div className="flex items-center gap-2 mb-5">
+                  <span
+                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{
+                      background:
+                        "linear-gradient(135deg,rgba(167,139,250,0.3),rgba(30,30,42,0.5))",
+                    }}
+                  >
+                    <FaTrophy className="text-[#fbbf24] text-sm" />
+                  </span>
+                  <h2 className="text-lg font-bold text-white">Top Projects</h2>
                 </div>
-                {/* Project 2 */}
-                <div className="bg-[#23232a]/90 rounded-2xl p-4 flex flex-col gap-3 border border-[#a78bfa]/10 shadow-lg">
-                  <div className="rounded-xl overflow-hidden">
-                    <img
-                      src={ReactMini}
-                      alt="Personal Project"
-                      className="w-full h-32 object-cover opacity-50 rounded-xl border border-[#a78bfa]/20"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">
-                          React Mini Projects
-                        </h3>
-                        <span className="text-sm text-gray-400">Personal</span>
+                <div className="flex flex-col gap-4">
+                  {projects.map(({ img, title, category, url, desc }) => (
+                    <div
+                      key={title}
+                      className="rounded-2xl overflow-hidden transition-all hover:scale-[1.01]"
+                      style={{
+                        background: "rgba(167,139,250,0.05)",
+                        border: "1px solid rgba(167,139,250,0.12)",
+                      }}
+                    >
+                      <div className="relative overflow-hidden h-32">
+                        <img
+                          src={img}
+                          alt={title}
+                          className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                          style={{ opacity: 0.7 }}
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              "linear-gradient(to top, rgba(15,15,22,0.8) 0%, transparent 60%)",
+                          }}
+                        />
+                        <div className="absolute top-2 right-2">
+                          <span
+                            className="text-[10px] font-bold px-2 py-1 rounded-full"
+                            style={{
+                              background: "rgba(167,139,250,0.3)",
+                              border: "1px solid rgba(167,139,250,0.4)",
+                              color: "#e2d9ff",
+                            }}
+                          >
+                            {category}
+                          </span>
+                        </div>
                       </div>
-                      <button className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-[#a78bfa]/30 to-[#23232a] border border-[#a78bfa]/20 hover:bg-[#1a1a20] transition shadow">
+                      <div className="p-3 flex items-center justify-between">
+                        <div>
+                          <div className="font-bold text-white text-sm">
+                            {title}
+                          </div>
+                          <div className="text-[11px] text-[#8b8ba0] mt-0.5">
+                            {desc}
+                          </div>
+                        </div>
                         <a
-                          href="https://react-projects-rust-xi.vercel.app/"
+                          href={url}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="w-9 h-9 flex items-center justify-center rounded-xl flex-shrink-0 ml-3 transition-all hover:scale-110"
+                          style={{
+                            background:
+                              "linear-gradient(135deg,rgba(167,139,250,0.3),rgba(30,30,42,0.8))",
+                            border: "1px solid rgba(167,139,250,0.25)",
+                          }}
                         >
-                          <FaExternalLinkAlt className="text-violet-300" />
+                          <FaExternalLinkAlt className="text-[#a78bfa] text-sm" />
                         </a>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                {/* Project 3 */}
-                <div className="bg-[#23232a]/90 rounded-2xl p-4 flex flex-col gap-3 border border-[#a78bfa]/10 shadow-lg">
-                  <div className="rounded-xl overflow-hidden">
-                    <img
-                      src={AC}
-                      alt="Assassins Creed Website"
-                      className="w-full h-32 object-cover opacity-50 rounded-xl border border-[#a78bfa]/20"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">
-                          Assassins Creed Website
-                        </h3>
-                        <span className="text-sm text-gray-400">Fan-site</span>
                       </div>
-                      <button className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-[#a78bfa]/30 to-[#23232a] border border-[#a78bfa]/20 hover:bg-[#1a1a20] transition shadow">
-                        <a href="https://assassins-creed-web.vercel.app/">
-                          <FaExternalLinkAlt className="text-violet-300" />
-                        </a>
-                      </button>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                {/* Add more projects here */}
+              </div>
+
+              {/* Profile Card */}
+              <div
+                className="bento-card rounded-2xl p-6 flex flex-col items-center text-center lg:flex-1 lg:justify-center"
+                style={cardBase}
+              >
+                <div
+                  className="w-20 h-20 rounded-2xl overflow-hidden mb-3"
+                  style={{
+                    border: "2px solid rgba(167,139,250,0.3)",
+                    boxShadow: "0 0 24px rgba(167,139,250,0.15)",
+                  }}
+                >
+                  <img
+                    src={pfp}
+                    alt="Ameer Hamza"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-xl font-black text-white mb-1 flex items-center gap-2">
+                  <FaUserGraduate className="text-[#a78bfa] text-base" />
+                  Ameer Hamza Athar
+                </div>
+                <div className="flex gap-3 my-4">
+                  {[
+                    { href: "https://github.com/Hamza-Athar1", icon: <FaGithub /> },
+                    { href: "https://www.linkedin.com/in/hamza-athar-ezio", icon: <FaLinkedin /> },
+                    { href: "mailto:atharhamza559@gmail.com", icon: <FaEnvelope /> },
+                  ].map(({ href, icon }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 flex items-center justify-center rounded-xl text-[#a78bfa] transition-all hover:scale-110 hover:text-white"
+                      style={{
+                        background: "rgba(167,139,250,0.1)",
+                        border: "1px solid rgba(167,139,250,0.2)",
+                      }}
+                    >
+                      {icon}
+                    </a>
+                  ))}
+                </div>
+                <Link
+                  to="/"
+                  className="px-6 py-2.5 rounded-xl font-bold text-sm text-[#1a1a24] transition-all hover:scale-105"
+                  style={{
+                    background: "linear-gradient(135deg,#a78bfa,#fbbf24)",
+                    boxShadow: "0 4px 16px rgba(167,139,250,0.3)",
+                  }}
+                >
+                  About Me →
+                </Link>
+              </div>
+
+              {/* Fun Fact + Quote */}
+              <div
+                className="bento-card rounded-2xl p-4 text-center"
+                style={cardBase}
+              >
+                <div className="flex justify-center mb-1"><FaLightbulb className="text-[#fbbf24] text-xl" /></div>
+                <p className="text-[12px] text-[#a78bfa] italic mt-2 leading-relaxed">
+                  "Did you know? The first computer bug was an actual moth found
+                  in a computer in 1947."
+                </p>
+              </div>
+              <div
+                className="bento-card rounded-2xl p-4 text-center"
+                style={cardBase}
+              >
+                <p className="text-[13px] text-[#8b8ba0] italic leading-relaxed">
+                  "Code is like humor. When you have to explain it, it's bad."
+                </p>
+                <div className="text-[11px] text-[#a78bfa] font-semibold mt-2">
+                  — Cory House
+                </div>
               </div>
             </div>
-            <div className="fade-in relative bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-3xl shadow-2xl border border-[#a78bfa]/10 px-8 py-8 flex flex-col items-center w-full max-w-[600px] mx-auto mt-8">
-              {/* Avatar */}
-              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#fbbf24] flex items-center justify-center mb-3 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
-                <img
-                  src={pfp}
-                  alt="Ameer Hamza"
-                  className="w-20 h-20 object-cover rounded-xl"
-                />
-              </div>
-              {/* Name */}
-              <div className="text-2xl font-extrabold text-white mb-2 flex items-center gap-2 tracking-tight">
-                <FaUserGraduate className="text-violet-400" />
-                Ameer Hamza Athar
-              </div>
-              {/* Social Icons */}
-              <div className="flex gap-4 mb-6">
-                <a
-                  href="https://github.com/Hamza-Athar1"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#23232a] hover:bg-violet-400 hover:text-[#23232a] transition shadow-md border border-[#a78bfa]/20"
-                >
-                  <FaGithub className="text-violet-400 text-xl" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/hamza-athar-ezio"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#23232a] hover:bg-violet-400 hover:text-[#23232a] transition shadow-md border border-[#a78bfa]/20"
-                >
-                  <FaLinkedin className="text-violet-400 text-xl" />
-                </a>
-                <a
-                  href="mailto:atharhamza559@gmail.com"
-                  className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#23232a] hover:bg-violet-400 hover:text-[#23232a] transition shadow-md border border-[#a78bfa]/20"
-                >
-                  <FaEnvelope className="text-violet-400 text-xl" />
-                </a>
-              </div>
-              {/* About Me Button */}
-              <button className="w-[220px] py-3 rounded-xl bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-[#23232a] font-bold text-lg shadow-lg hover:from-[#b794f4] hover:to-[#fde68a] hover:text-black transition border-2 border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400">
-                <Link>About Me</Link>
-              </button>
-            </div>
-            <div className="fade-in w-full max-w-[600px] mx-auto mt-4 flex justify-center">
-              <div className="bg-[#23232a]/80 rounded-xl px-6 py-4 text-center text-sm text-violet-200 italic shadow border border-[#a78bfa]/10">
-                {/* You can change the quote/fact below */}
-                "Did you know? The first computer bug was an actual moth found
-                in a computer in 1947."
-              </div>
-            </div>
-            <div className="fade-in w-full max-w-[600px] mx-auto mt-2 flex justify-center">
-              <div className="bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-xl px-6 py-4 text-center text-base text-violet-300 font-semibold shadow border border-[#a78bfa]/10">
-                "Code is like humor. When you have to explain it, it’s bad." –
-                Cory House
-              </div>
-            </div>
-          </div>
-          {/* Right: All other sections stacked */}
-          <div className="slide-in-right col-span-12 lg:col-span-7 flex flex-col gap-8">
-            {/* Awards & Accolades */}
-            <div className="fade-in bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-2xl border border-[#a78bfa]/10 p-6 flex flex-col items-center w-full max-w-[900px] mx-auto">
-              <span className="text-violet-300 flex items-center gap-2 text-xs font-semibold mb-1">
-                <FaCrown />
-                Recognitions
-              </span>
-              <h2 className="text-lg font-bold text-white mb-4">
-                Awards & Accolades
-              </h2>
-              <div className="w-full flex flex-col gap-3">
-                {/* Card 1 */}
-                <a
-                  href="https://www.linkedin.com/in/hamza-athar-ezio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-[#23232a]/90 rounded-xl px-4 py-3 hover:bg-violet-400/10 transition border border-[#a78bfa]/10 shadow"
-                >
-                  <div className="flex items-center gap-3">
-                    {/* Icon */}
-                    <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#23232a] border border-[#a78bfa]/20">
-                      <FaAward className="text-violet-300" size={20} />
-                    </span>
-                    <div>
-                      <div className="font-semibold text-white text-sm">
-                        Advanced React Course
-                      </div>
-                      <div className="text-xs text-gray-400">coursera.com</div>
+
+            {/* Right Column */}
+            <div className="slide-in-right lg:col-span-7 flex flex-col gap-6">
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "08+", label: "Certifications", icon: <FaCertificate /> },
+                  { value: "250+", label: "Designs", icon: <FaPalette /> },
+                  { value: "07+", label: "Collaborations", icon: <FaUserCheck /> },
+                  { value: "32+", label: "Clients", icon: <FaUserAlt /> },
+                ].map(({ value, label, icon }) => (
+                  <div
+                    key={label}
+                    className="bento-card rounded-2xl py-6 flex flex-col items-center text-center transition-all hover:scale-[1.02]"
+                    style={cardBase}
+                  >
+                    <div className="text-3xl font-black text-white mb-2">
+                      {value}
+                    </div>
+                    <div className="flex items-center gap-2 text-[#a78bfa] text-sm font-medium">
+                      {icon}
+                      {label}
                     </div>
                   </div>
-                  <span>
-                    <FaExternalLinkAlt className="text-violet-300" size={18} />
+                ))}
+              </div>
+
+              {/* Awards & Accolades */}
+              <div className="bento-card rounded-2xl p-6" style={cardBase}>
+                <div className="flex items-center gap-2 mb-4">
+                  <FaCrown className="text-[#fbbf24]" />
+                  <span className="text-[11px] text-[#8b8ba0] font-semibold tracking-widest uppercase">
+                    Recognitions
                   </span>
-                </a>
-                {/* Card 2 */}
-                <a
-                  href="https://www.linkedin.com/in/hamza-athar-ezio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-[#23232a]/90 rounded-xl px-4 py-3 hover:bg-violet-400/10 transition border border-[#a78bfa]/10 shadow"
-                >
-                  <div className="flex items-center gap-3">
-                    {/* Icon */}
-                    <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#23232a] border border-[#a78bfa]/20">
-                      <FaMedal className="text-violet-300" size={20} />
-                    </span>
-                    <div>
-                      <div className="font-semibold text-white text-sm">
-                        Graphic Designing
-                      </div>
-                      <div className="text-xs text-gray-400">Digiskills.pk</div>
-                    </div>
-                  </div>
-                  <span>
-                    <FaExternalLinkAlt className="text-violet-300" size={18} />
-                  </span>
-                </a>
-                {/* Card 3 */}
-                <a
-                  href="https://www.linkedin.com/in/hamza-athar-ezio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-[#23232a]/90 rounded-xl px-4 py-3 hover:bg-violet-400/10 transition border border-[#a78bfa]/10 shadow"
-                >
-                  <div className="flex items-center gap-3">
-                    {/* Icon */}
-                    <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#23232a] border border-[#a78bfa]/20">
-                      <FaGem className="text-violet-300" size={20} />
-                    </span>
-                    <div>
-                      <div className="font-semibold text-white text-sm">
-                        Freelancing
-                      </div>
-                      <div className="text-xs text-gray-400">
-                        Digiskills.com
-                      </div>
-                    </div>
-                  </div>
-                  <span>
-                    <FaExternalLinkAlt className="text-violet-300" size={18} />
-                  </span>
-                </a>
-              </div>
-            </div>
-            {/* Certifications/Stats */}
-            <div className="fade-in bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-2xl border border-[#a78bfa]/10 p-6 flex flex-col items-center w-full max-w-[900px] mx-auto">
-              <div className="grid grid-cols-2 gap-x-2 gap-y-5 w-full">
-                {/* Certifications */}
-                <div className="bg-[#18181e]/90 rounded-xl flex flex-col items-center py-6 shadow-inner border border-[#a78bfa]/10">
-                  <div className="text-4xl font-extrabold text-gray-200 tracking-wider">
-                    08
-                    <span className="text-violet-400 text-2xl align-top">
-                      +
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2 text-violet-400 text-sm font-medium">
-                    <FaCertificate />
-                    Certifications
-                  </div>
                 </div>
-                {/* Designs */}
-                <div className="bg-[#18181e]/90 rounded-xl flex flex-col items-center py-6 shadow-inner border border-[#a78bfa]/10">
-                  <div className="text-4xl font-extrabold text-gray-200 tracking-wider">
-                    250
-                    <span className="text-violet-400 text-2xl align-top">
-                      +
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2 text-violet-400 text-sm font-medium">
-                    <FaPalette />
-                    Designs
-                  </div>
-                </div>
-                {/* Collaborations */}
-                <div className="bg-[#18181e]/90 rounded-xl flex flex-col items-center py-6 shadow-inner border border-[#a78bfa]/10">
-                  <div className="text-4xl font-extrabold text-gray-200 tracking-wider">
-                    07
-                    <span className="text-violet-400 text-2xl align-top">
-                      +
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2 text-violet-400 text-sm font-medium">
-                    <FaUserCheck />
-                    Collaborations
-                  </div>
-                </div>
-                {/* Clients */}
-                <div className="bg-[#18181e]/90 rounded-xl flex flex-col items-center py-6 shadow-inner border border-[#a78bfa]/10">
-                  <div className="text-4xl font-extrabold text-gray-200 tracking-wider">
-                    32
-                    <span className="text-violet-400 text-2xl align-top">
-                      +
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-2 text-violet-400 text-sm font-medium">
-                    <FaUserAlt />
-                    Clients
-                  </div>
+                <h2 className="text-xl font-bold text-white mb-4">
+                  Awards & Accolades
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {[
+                    { icon: <FaAward />, title: "Advanced React Course", source: "Coursera.com" },
+                    { icon: <FaMedal />, title: "Graphic Designing", source: "Digiskills.pk" },
+                    { icon: <FaGem />, title: "Freelancing Certificate", source: "Digiskills.pk" },
+                  ].map(({ icon, title, source }) => (
+                    <a
+                      key={title}
+                      href="https://www.linkedin.com/in/hamza-athar-ezio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between rounded-xl px-4 py-3 transition-all hover:scale-[1.01]"
+                      style={{
+                        background: "rgba(167,139,250,0.06)",
+                        border: "1px solid rgba(167,139,250,0.12)",
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span
+                          className="w-9 h-9 flex items-center justify-center rounded-xl text-[#a78bfa]"
+                          style={{
+                            background: "rgba(167,139,250,0.12)",
+                            border: "1px solid rgba(167,139,250,0.2)",
+                          }}
+                        >
+                          {icon}
+                        </span>
+                        <div>
+                          <div className="font-semibold text-white text-sm">
+                            {title}
+                          </div>
+                          <div className="text-[11px] text-[#8b8ba0]">
+                            {source}
+                          </div>
+                        </div>
+                      </div>
+                      <FaExternalLinkAlt className="text-[#a78bfa] text-sm flex-shrink-0" />
+                    </a>
+                  ))}
                 </div>
               </div>
-            </div>
-            {/* Service Suite Card */}
-            <div className="fade-in bg-gradient-to-br from-[#a78bfa]/10 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center px-8 py-8 w-full max-w-[900px] mx-auto">
-              <span className="text-[#a78bfa] text-xl drop-shadow-lg mb-1">
-                <FaBriefcase />
-              </span>
-              <span className="text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
-                What I Offer
-              </span>
-              <h2 className="text-base font-bold text-white mt-1 tracking-tight mb-2">
-                Services
-              </h2>
-              <div className="w-full mt-2">
-                <Marquee pauseOnHover speed={40}>
-                  <span className="flex items-center gap-6">
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaLaptopCode className="text-[#a78bfa]" />
-                      <span className="text-xs text-white font-semibold">
-                        Web Design
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaMobileAlt className="text-[#a78bfa]" />
-                      <span className="text-xs text-white font-semibold">
-                        Mobile App Design
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaCode className="text-[#a78bfa]" />
-                      <span className="text-xs text-white font-semibold">
-                        Development
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaPencilRuler className="text-[#a78bfa]" />
-                      <span className="text-xs text-white font-semibold">
-                        Branding
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaLayerGroup className="text-[#a78bfa]" />
-                      <span className="text-xs text-white font-semibold">
-                        UI/UX
-                      </span>
-                    </span>
+
+              {/* Services */}
+              <div
+                className="bento-card rounded-2xl p-6"
+                style={{
+                  ...cardBase,
+                  background:
+                    "linear-gradient(145deg,rgba(167,139,250,0.1),rgba(15,15,22,0.95))",
+                  border: "1px solid rgba(167,139,250,0.15)",
+                }}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <FaBriefcase className="text-[#a78bfa]" />
+                  <span className="text-[11px] text-[#8b8ba0] font-semibold tracking-widest uppercase">
+                    What I Offer
                   </span>
+                </div>
+                <h2 className="text-xl font-bold text-white mb-4">
+                  Service Suite
+                </h2>
+                <Marquee pauseOnHover speed={38}>
+                  {[
+                    { icon: <FaLaptopCode className="text-[#a78bfa]" />, label: "Web Design" },
+                    { icon: <FaMobileAlt className="text-[#a78bfa]" />, label: "Mobile App" },
+                    { icon: <FaCode className="text-[#a78bfa]" />, label: "Development" },
+                    { icon: <FaPencilRuler className="text-[#a78bfa]" />, label: "Branding" },
+                    { icon: <FaLayerGroup className="text-[#a78bfa]" />, label: "UI/UX" },
+                  ].map(({ icon, label }) => (
+                    <span
+                      key={label}
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl mx-2 text-[12px] text-white font-semibold transition-all hover:scale-105"
+                      style={{
+                        background: "rgba(167,139,250,0.08)",
+                        border: "1px solid rgba(167,139,250,0.15)",
+                      }}
+                    >
+                      {icon}
+                      {label}
+                    </span>
+                  ))}
                 </Marquee>
               </div>
-            </div>
-            {/* My Hardcore Skills Card */}
-            <div className="fade-in bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-2xl border border-[#a78bfa]/10 px-8 py-8 flex flex-col items-center w-full max-w-[900px] mx-auto">
-              <span className="text-violet-300 flex items-center gap-2 text-base mb-1">
-                <FaBullseye />
-                My Skills
-              </span>
-              <h2 className="text-2xl text-white font-bold text-center mb-4">
-                My Hardcore Skills
-              </h2>
-              <div className="w-full mt-2">
-                <Marquee pauseOnHover speed={40} direction="right">
-                  <span className="flex items-center gap-6">
-                    {/* React */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaReact className="text-[#61DAFB] text-2xl" />
-                      <span className="font-semibold text-white">React</span>
-                    </span>
-                    {/* HTML */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaHtml5 className="text-[#E44D26] text-2xl" />
-                      <span className="font-semibold text-white">HTML</span>
-                    </span>
-                    {/* CSS */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaCss3Alt className="text-[#2965F1] text-2xl" />
-                      <span className="font-semibold text-white">CSS</span>
-                    </span>
-                    {/* JavaScript */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaJsSquare className="text-[#F7DF1E] text-2xl" />
-                      <span className="font-semibold text-white">
-                        JavaScript
-                      </span>
-                    </span>
-                    {/* Python */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaPython className="text-[#3776AB] text-2xl" />
-                      <span className="font-semibold text-white">Python</span>
-                    </span>
-                    {/* C++ */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <SiCplusplus className="text-[#00599C] text-2xl" />
-                      <span className="font-semibold text-white">C++</span>
-                    </span>
-                    {/* QT */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <SiQt className="text-[#41CD52] text-2xl" />
-                      <span className="font-semibold text-white">QT</span>
-                    </span>
-                    {/* SQL */}
-                    <span className="flex items-center gap-2 mr-7 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <SiMysql className="text-[#4479A1] text-2xl" />
-                      <span className="font-semibold text-white">SQL</span>
-                    </span>
+
+              {/* Skills */}
+              <div className="bento-card rounded-2xl p-6" style={cardBase}>
+                <div className="flex items-center gap-2 mb-1">
+                  <FaBullseye className="text-[#a78bfa]" />
+                  <span className="text-[11px] text-[#8b8ba0] font-semibold tracking-widest uppercase">
+                    My Skills
                   </span>
-                </Marquee>
+                </div>
+                <h2 className="text-xl font-bold text-white mb-4">
+                  Tech Stack
+                </h2>
+                <div className="flex flex-col gap-3">
+                  <Marquee pauseOnHover speed={38} direction="right">
+                    {[
+                      { icon: <FaReact className="text-[#61DAFB] text-xl" />, label: "React" },
+                      { icon: <FaHtml5 className="text-[#E44D26] text-xl" />, label: "HTML" },
+                      { icon: <FaCss3Alt className="text-[#2965F1] text-xl" />, label: "CSS" },
+                      { icon: <FaJsSquare className="text-[#F7DF1E] text-xl" />, label: "JS" },
+                      { icon: <FaPython className="text-[#3776AB] text-xl" />, label: "Python" },
+                      { icon: <SiCplusplus className="text-[#00599C] text-xl" />, label: "C++" },
+                      { icon: <SiQt className="text-[#41CD52] text-xl" />, label: "Qt" },
+                      { icon: <SiMysql className="text-[#4479A1] text-xl" />, label: "SQL" },
+                    ].map(({ icon, label }) => (
+                      <span
+                        key={label}
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl mx-2 text-[12px] text-white font-semibold transition-all hover:scale-105"
+                        style={{ background: "rgba(30,30,42,0.8)", border: "1px solid rgba(167,139,250,0.12)" }}
+                      >
+                        {icon} {label}
+                      </span>
+                    ))}
+                  </Marquee>
+                </div>
               </div>
-            </div>
-            {/* Why Me Card */}
-            <div className="fade-in bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 rounded-2xl shadow-2xl border border-[#a78bfa]/10 px-4 py-6 flex flex-col items-center w-full max-w-[900px] mx-auto">
-              <span className="text-violet-300 flex items-center gap-2 text-base mb-1">
-                <FaSun />
-                Why Me
-              </span>
-              <h2 className="text-2xl font-bold text-center mb-4 text-white">
-                Why to Choose Me?
-              </h2>
-              <div className="w-full mt-2">
-                <Marquee pauseOnHover speed={20}>
-                  <span className="flex items-center gap-6">
-                    {/* Problem Solver */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaLightbulb className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Problem Solver
-                      </span>
-                    </span>
-                    {/* Attention to Detail */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaRegStar className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Attention to Detail
-                      </span>
-                    </span>
-                    {/* Critical Thinker */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaRegSun className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Critical Thinker
-                      </span>
-                    </span>
-                    {/* Continuous Learner */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaBolt className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Continuous Learner
-                      </span>
-                    </span>
-                    {/* Team Player */}
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaUsers className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Team Player
-                      </span>
-                    </span>
-                    {/* Proactive */}
-                    <span className="flex items-center gap-2 px-4 py-2 mr-7 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaRocket className="text-gray-200 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Proactive
-                      </span>
-                    </span>
+
+              {/* Why Me */}
+              <div className="bento-card rounded-2xl p-6" style={cardBase}>
+                <div className="flex items-center gap-2 mb-1">
+                  <FaSun className="text-[#fbbf24]" />
+                  <span className="text-[11px] text-[#8b8ba0] font-semibold tracking-widest uppercase">
+                    Why Me
                   </span>
-                </Marquee>
-                {/* Additional Marquee Below */}
-                <Marquee
-                  pauseOnHover
-                  speed={20}
-                  direction="right"
-                  className="mt-4"
-                >
-                  <span className="flex items-center gap-6">
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaRegStar className="text-yellow-400 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Fast Learner
+                </div>
+                <h2 className="text-xl font-bold text-white mb-4">
+                  Why Choose Me?
+                </h2>
+                <div className="flex flex-col gap-2">
+                  <Marquee pauseOnHover speed={18}>
+                    {[
+                      { icon: <FaLightbulb className="text-[#fbbf24]" />, label: "Problem Solver" },
+                      { icon: <FaRegStar className="text-[#a78bfa]" />, label: "Attention to Detail" },
+                      { icon: <FaRegSun className="text-[#61dafb]" />, label: "Critical Thinker" },
+                      { icon: <FaBolt className="text-[#fbbf24]" />, label: "Fast Learner" },
+                      { icon: <FaUsers className="text-[#34d399]" />, label: "Team Player" },
+                      { icon: <FaRocket className="text-[#a78bfa]" />, label: "Proactive" },
+                    ].map(({ icon, label }) => (
+                      <span
+                        key={label}
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl mx-2 text-[12px] text-white font-semibold"
+                        style={{ background: "rgba(167,139,250,0.07)", border: "1px solid rgba(167,139,250,0.12)" }}
+                      >
+                        {icon} {label}
                       </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaUsers className="text-blue-400 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Great Communicator
+                    ))}
+                  </Marquee>
+                  <Marquee pauseOnHover speed={18} direction="right" className="mt-2">
+                    {[
+                      { icon: <FaLightbulb className="text-[#34d399]" />, label: "Creative Thinker" },
+                      { icon: <FaUsers className="text-[#61dafb]" />, label: "Communicator" },
+                      { icon: <FaBolt className="text-[#e1306c]" />, label: "Motivated" },
+                      { icon: <FaRocket className="text-[#a78bfa]" />, label: "Results Driven" },
+                    ].map(({ icon, label }) => (
+                      <span
+                        key={label}
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl mx-2 text-[12px] text-white font-semibold"
+                        style={{ background: "rgba(167,139,250,0.07)", border: "1px solid rgba(167,139,250,0.12)" }}
+                      >
+                        {icon} {label}
                       </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaLightbulb className="text-green-400 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Creative Thinker
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaBolt className="text-pink-400 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Motivated
-                      </span>
-                    </span>
-                    <span className="flex items-center gap-2 mr-7 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2 shadow hover:scale-105 transition-transform">
-                      <FaRocket className="text-purple-400 text-lg" />
-                      <span className="font-semibold text-white text-sm">
-                        Results Driven
-                      </span>
-                    </span>
-                  </span>
-                </Marquee>
+                    ))}
+                  </Marquee>
+                </div>
               </div>
             </div>
           </div>

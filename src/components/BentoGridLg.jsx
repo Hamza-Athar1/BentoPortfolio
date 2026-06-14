@@ -1,6 +1,5 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import {
-  PiGithubLogoBold,
   PiFacebookLogoBold,
   PiLinkedinLogoBold,
   PiFlagBannerFoldFill,
@@ -12,15 +11,23 @@ import {
   PiPaletteFill,
   PiMapPinFill,
   PiGlobeHemisphereWestFill,
-  PiStudentFill,
   PiClockFill,
-  PiSmileyFill,
-  PiWhatsappLogoLight,
+  PiWhatsappLogoFill,
   PiEnvelopeSimpleFill,
   PiDevicesBold,
   PiCodeBlock,
   PiPenNib,
   PiAppWindow,
+  PiHandshakeBold,
+  PiSparkleBold,
+  PiTrophyBold,
+  PiFoldersBold,
+  PiImagesBold,
+  PiBriefcaseBold,
+  PiWrenchBold,
+  PiCalendarBlankBold,
+  PiCheckBold,
+  PiArrowRightBold,
 } from "react-icons/pi";
 import {
   FaFacebook,
@@ -28,6 +35,7 @@ import {
   FaLinkedin,
   FaReact,
   FaPython,
+  FaGithub,
 } from "react-icons/fa";
 import { SiCplusplus, SiMysql } from "react-icons/si";
 import Marquee from "react-fast-marquee";
@@ -35,494 +43,416 @@ import pfp from "../assets/pfp.jpg";
 import AC from "../assets/AC.png";
 import Aiaura from "../assets/Aiaura.png";
 import ReactMini from "../assets/ReactMini.png";
-const BentoGridLg = () => {
-  return (
-    <div className="lg:h-screen lg:w-screen p-1 min-h-screen">
-      <div className="grid h-full w-full gap-4 lg:grid-cols-6 lg:grid-rows-6 bg-transparent text-gray-300 rounded-2xl shadow-2xl border border-[#23232a]/40 backdrop-blur-md">
-        {/* Socials - Top Left Corner */}
-        <div className="slide-in-top col-span-1 row-span-1 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 py-3 text-center hover:scale-[1.04] hover:shadow-violet-900/40 transition-transform duration-300">
-          <span className="fade-in text-[#fbbf24] text-lg drop-shadow-lg">
-            🤝
-          </span>
-          <h2 className="fade-in text-[11px] font-bold pb-1 text-white mt-1 tracking-tight">
-            Connect with Me
-          </h2>
-          <div className="fade-in flex flex-row gap-1 mt-1">
-            <a
-              href="https://github.com/Hamza-Athar1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#a78bfa] transition-colors duration-300"
-            >
-              <PiGithubLogoBold className="text-lg" />
-            </a>
-            <a
-              href="https://facebook.com/hamza.athar.1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#fbbf24] transition-colors duration-300"
-            >
-              <PiFacebookLogoBold className="text-lg" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hamza-athar-ezio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#34d399] transition-colors duration-300"
-            >
-              <PiLinkedinLogoBold className="text-lg" />
-            </a>
+import Navbar from "./Navbar";
+
+/* ── design tokens ── */
+const C = {
+  card: {
+    background: "rgba(20,18,32,0.92)",
+    border: "1px solid rgba(167,139,250,0.11)",
+    backdropFilter: "blur(20px)",
+  },
+  item: {
+    background: "rgba(167,139,250,0.05)",
+    border: "1px solid rgba(167,139,250,0.10)",
+  },
+  tag: {
+    background: "rgba(30,26,48,0.85)",
+    border: "1px solid rgba(167,139,250,0.11)",
+  },
+  hr: { background: "rgba(167,139,250,0.09)" },
+};
+
+/* ── tiny helpers ── */
+const Divider = () => (
+  <div className="w-full h-px" style={C.hr} />
+);
+
+const SectionLabel = ({ icon, label }) => (
+  <div className="flex items-center gap-2">
+    <span className="text-base opacity-90">{icon}</span>
+    <span className="text-[10px] text-[#8b8ba0] font-bold tracking-widest uppercase">{label}</span>
+  </div>
+);
+
+/* ═══════════════════════════════════════════════════ */
+const BentoGridLg = () => (
+  <div
+    className="h-screen w-full flex flex-col overflow-hidden"
+    style={{ background: "linear-gradient(145deg,#0d0b14 0%,#10101a 55%,#14121e 100%)" }}
+  >
+    <Navbar />
+
+    <div className="flex-1 px-4 pb-4 overflow-hidden">
+      <div
+        className="grid gap-3 w-full h-full max-w-[1720px] mx-auto"
+        style={{
+          gridTemplateColumns: "repeat(12,1fr)",
+          /* compact header/footer rows; main content rows are equal */
+          gridTemplateRows: "0.5fr 1fr 1fr 1fr 1fr 0.5fr",
+        }}
+      >
+
+        {/* ════════════════ ROW 1 – Stats bar ════════════════ */}
+
+        {/* Connect  1-2 */}
+        <div className="slide-in-top rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "1/3" }}>
+          <SectionLabel icon={<PiHandshakeBold className="text-[#a78bfa]" />} label="Connect" />
+          <div className="flex gap-2">
+            {[
+              { h: "https://github.com/Hamza-Athar1",            n: <FaGithub />,         c: "#a78bfa" },
+              { h: "https://facebook.com/hamza.athar.1",         n: <PiFacebookLogoBold />, c: "#1877f2" },
+              { h: "https://linkedin.com/in/hamza-athar-ezio",   n: <PiLinkedinLogoBold />, c: "#0077b5" },
+            ].map(({ h, n, c }) => (
+              <a key={h} href={h} target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-sm transition-all hover:scale-110"
+                style={{ color: c, background: `${c}14`, border: `1px solid ${c}30` }}>
+                {n}
+              </a>
+            ))}
           </div>
         </div>
-        {/* No. of Projects - Top Border */}
-        <div className="slide-in-top col-span-1 row-span-1 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] bg-clip-text text-transparent drop-shadow-lg">
-            56<span className="text-[#a78bfa] text-2xl">+</span>
-          </h2>
-          <div className="fade-in flex items-center mt-2">
-            <PiFlagBannerFoldFill className="text-[#a78bfa] text-xl mr-2" />
-            <p className="text-xs text-[#a1a1aa] font-semibold">Projects</p>
+
+        {/* 56 Projects  3-4 */}
+        <div className="slide-in-top delay-100 rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "3/5", background: "rgba(167,139,250,0.09)", border: "1px solid rgba(167,139,250,0.20)" }}>
+          <span className="text-4xl font-black gradient-text leading-none">56</span>
+          <div className="flex items-center gap-1.5">
+            <PiFlagBannerFoldFill className="text-[#a78bfa] text-sm" />
+            <span className="text-xs text-[#8b8ba0] font-semibold">Projects</span>
           </div>
         </div>
-        {/* Clients - Top Right Corner */}
-        <div className="slide-in-right col-span-1 row-span-1 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#fbbf24] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
-            12<span className="text-[#a78bfa] text-2xl">+</span>
-          </h2>
-          <div className="fade-in flex items-center mt-2">
-            <PiCampfire className="text-[#fbbf24] text-xl mr-2" />
-            <p className="text-xs text-[#a1a1aa] font-semibold">Clients</p>
+
+        {/* 12 Clients  5-6 */}
+        <div className="slide-in-top delay-200 rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "5/7", background: "rgba(251,191,36,0.09)", border: "1px solid rgba(251,191,36,0.20)" }}>
+          <span className="text-4xl font-black leading-none"
+            style={{ background: "linear-gradient(135deg,#fbbf24,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            12
+          </span>
+          <div className="flex items-center gap-1.5">
+            <PiCampfire className="text-[#fbbf24] text-sm" />
+            <span className="text-xs text-[#8b8ba0] font-semibold">Clients</span>
           </div>
         </div>
-        {/* Experience - Right Border */}
-        <div className="slide-in-right col-span-1 row-span-1 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.04] hover:shadow-2xl transition-transform duration-300">
-          <h2 className="fade-in text-4xl font-extrabold bg-gradient-to-r from-[#34d399] to-[#a78bfa] bg-clip-text text-transparent drop-shadow-lg">
-            5<span className="text-[#a78bfa] text-2xl">+</span>
-          </h2>
-          <div className="fade-in flex items-center mt-2">
-            <PiCalendarCheckDuotone className="text-[#34d399] text-xl mr-2" />
-            <p className="text-xs text-[#a1a1aa] font-semibold">YOE</p>
+
+        {/* 5 YOE  7-8 */}
+        <div className="slide-in-top delay-300 rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "7/9", background: "rgba(52,211,153,0.09)", border: "1px solid rgba(52,211,153,0.20)" }}>
+          <span className="text-4xl font-black leading-none"
+            style={{ background: "linear-gradient(135deg,#34d399,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            5
+          </span>
+          <div className="flex items-center gap-1.5">
+            <PiCalendarCheckDuotone className="text-[#34d399] text-sm" />
+            <span className="text-xs text-[#8b8ba0] font-semibold">Years Exp.</span>
           </div>
         </div>
-        {/* Achievements - Left Border */}
-        <div className="slide-in-left col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-4 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
-          <span className="fade-in text-[#a78bfa] text-2xl drop-shadow-lg mb-1">
-            🏆
-          </span>
-          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold tracking-wider uppercase">
-            Highlights
-          </span>
-          <h2 className="fade-in text-lg font-bold text-white mt-1 tracking-tight">
-            Achievements
-          </h2>
-          <div className="fade-in flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
-            <ul className="text-xs mt-2 text-[#a1a1aa] text-left list-disc list-inside w-full max-w-[90%] mx-auto space-y-1">
-              <li>
-                <span className="font-semibold text-white">
-                  Open Source Contributor
-                </span>{" "}
-                – 10+ Projects
-              </li>
-              <li>
-                <span className="font-semibold text-white">
-                  Summer of Making Participant
-                </span>
-              </li>
-              <li>
-                <span className="font-semibold text-white">
-                  Community Volunteer
-                </span>{" "}
-                – Local Tech Events
-              </li>
-            </ul>
-            <span className="text-[#a78bfa] text-xs mt-4 font-medium block">
-              Always striving for excellence!
-            </span>
+
+        {/* Online  9-10 */}
+        <div className="slide-in-right delay-400 rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "9/11" }}>
+          <SectionLabel icon={<PiSparkleBold className="text-[#fbbf24]" />} label="Online" />
+          <div className="flex gap-2">
+            {[
+              { h: "https://facebook.com/hamza.athar.1",       n: <FaFacebook />,  c: "#1877f2" },
+              { h: "https://instagram.com/_hamza_nvm/",        n: <FaInstagram />, c: "#e1306c" },
+              { h: "https://linkedin.com/in/hamza-athar-ezio", n: <FaLinkedin />,  c: "#0077b5" },
+            ].map(({ h, n, c }) => (
+              <a key={h} href={h} target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-sm transition-all hover:scale-110"
+                style={{ color: c, background: `${c}14`, border: `1px solid ${c}30` }}>
+                {n}
+              </a>
+            ))}
           </div>
         </div>
-        {/* Workflow Highlights - Center (random slide-in-bottom) */}
-        <div className="slide-in-bottom col-span-1 row-span-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-4 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300 flex-1 min-h-0 overflow-hidden">
-          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
-            🤝
-          </span>
-          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
-            Workflow
-          </span>
-          <h2 className="fade-in text-lg font-bold text-white mt-1 tracking-tight">
-            Workflow Highlights
-          </h2>
-          <div className="fade-in flex-1 min-h-0 w-full flex flex-col justify-center overflow-y-auto">
-            <div className="w-full flex flex-col gap-2 mt-2 max-w-lg pr-1">
-              {/* Step 1 */}
-              <div className="group relative flex items-start gap-3 bg-[#23232a]/80 rounded-xl px-3 py-2 border border-[#a78bfa]/10 shadow cursor-pointer">
-                <span>
-                  <PiFlagBannerFoldFill className="text-[#a78bfa] text-xl" />
-                </span>
-                <div className="text-left flex-1">
-                  <div className="text-xs font-semibold text-white">
-                    Goals & Objectives
-                  </div>
-                  {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-100 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
-                    Defining project aims and target outcomes to guide design.
-                  </div>
+
+        {/* Contact  11-12 */}
+        <div className="slide-in-right delay-500 rounded-2xl px-4 flex flex-col items-center justify-evenly"
+          style={{ ...C.card, gridColumn: "11/13" }}>
+          <SectionLabel icon={<PiEnvelopeSimpleFill className="text-[#34d399]" />} label="Contact" />
+          <a href="mailto:atharhamza559@gmail.com"
+            className="flex items-center gap-2 rounded-xl px-5 py-2 text-xs font-bold text-white transition-all hover:scale-105"
+            style={{ background: "linear-gradient(135deg,rgba(167,139,250,0.75),rgba(52,211,153,0.4))", border: "1px solid rgba(167,139,250,0.24)" }}>
+            <PiEnvelopeSimpleFill className="text-sm" /> Email Me
+          </a>
+        </div>
+
+
+        {/* ════════════════ ROWS 2-5 – Main content ════════════════ */}
+
+        {/* ── Achievements  col 1-2, rows 2-5 ── */}
+        <div className="slide-in-left rounded-2xl p-4 flex flex-col"
+          style={{ ...C.card, gridColumn: "1/3", gridRow: "2/6" }}>
+
+          {/* Header */}
+          <SectionLabel icon={<PiTrophyBold className="text-[#fbbf24]" />} label="Highlights" />
+          <h2 className="text-base font-bold text-white mt-1 mb-3">Achievements</h2>
+          <Divider />
+
+          {/* ↓ justify-evenly: space is distributed BETWEEN items, items keep natural height */}
+          <div className="flex flex-col gap-8 my-4">
+            {[
+              { title: "Open Source",     sub: "10+ public repos",       dot: "#a78bfa" },
+              { title: "Summer of Making", sub: "Hackathon participant",  dot: "#fbbf24" },
+              { title: "Community",        sub: "Tech events volunteer",  dot: "#34d399" },
+              { title: "Dean's List",      sub: "Bahria University 2023", dot: "#a78bfa" },
+            ].map(({ title, sub, dot }) => (
+              <div key={title} className="rounded-xl px-4 py-3.5 flex items-center gap-3"
+                style={C.item}>
+                <span className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: dot, boxShadow: `0 0 8px ${dot}88` }} />
+                <div>
+                  <div className="text-sm font-semibold text-white leading-tight">{title}</div>
+                  <div className="text-[11px] text-[#8b8ba0] mt-0.5">{sub}</div>
                 </div>
               </div>
-              {/* Step 2 */}
-              <div className="group relative flex items-start gap-3 bg-[#23232a]/80 rounded-xl px-3 py-2 border border-[#a78bfa]/10 shadow cursor-pointer">
-                <span>
-                  <PiMagnifyingGlassBold className="text-[#a78bfa] text-xl" />
-                </span>
-                <div className="text-left flex-1">
-                  <div className="text-xs font-semibold text-white">
-                    Research
-                  </div>
-                  {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
-                    Gathering insights, analyzing competitors, and understanding
-                    user needs to inform the project direction.
-                  </div>
+            ))}
+          </div>
+
+          {/* Footer */}
+          <div className="mt-3 rounded-xl px-4 py-2.5 text-center" style={C.item}>
+            <span className="text-[11px] text-[#a78bfa] font-semibold">Always striving for excellence!</span>
+          </div>
+        </div>
+
+
+        {/* ── Workflow  col 3-4, rows 2-5 ── */}
+        <div className="slide-in-bottom rounded-2xl p-4 flex flex-col"
+          style={{ ...C.card, gridColumn: "3/5", gridRow: "2/6" }}>
+
+          <SectionLabel icon={<PiFoldersBold className="text-[#a78bfa]" />} label="Process" />
+          <h2 className="text-base font-bold text-white mt-1 mb-3">Workflow</h2>
+          <Divider />
+
+          {/* ↓ same pattern: justify-evenly, items at natural height */}
+          <div className="flex flex-col gap-3 mt-2">
+            {[
+              { icon: <PiFlagBannerFoldFill />, label: "Goals & Objectives", tip: "Define aims & target outcomes." },
+              { icon: <PiMagnifyingGlassBold />, label: "Research",           tip: "Gather insights & user needs."  },
+              { icon: <PiGitBranchBold />,       label: "Wireframe",          tip: "Map structure & navigation."    },
+              { icon: <PiPaletteFill />,         label: "Design",             tip: "High-fidelity visuals & polish."},
+            ].map(({ icon, label, tip }) => (
+              <div key={label} className="rounded-xl px-4 py-3.5 flex items-center gap-3"
+                style={C.item}>
+                <span className="text-[#a78bfa] text-xl flex-shrink-0">{icon}</span>
+                <div>
+                  <div className="text-sm font-semibold text-white leading-tight">{label}</div>
+                  <div className="text-[11px] text-[#8b8ba0] mt-0.5">{tip}</div>
                 </div>
               </div>
-              {/* Step 3 */}
-              <div className="group relative flex items-start gap-3 bg-[#23232a]/80 rounded-xl px-3 py-2 border border-[#a78bfa]/10 shadow cursor-pointer">
-                <span>
-                  <PiGitBranchBold className="text-[#a78bfa] text-xl" />
-                </span>
-                <div className="text-left flex-1">
-                  <div className="text-xs font-semibold text-white">
-                    Wireframe
-                  </div>
-                  {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
-                    Creating low-fidelity layouts to map out structure,
-                    navigation, and user flow before visual design.
-                  </div>
-                </div>
+            ))}
+          </div>
+        </div>
+
+
+        {/* ── Profile Hero  col 5-9, rows 2-5 ── */}
+        {/* justify-between distributes the 5 content blocks across the full card height */}
+        <div className="slide-in-top rounded-2xl px-5 py-5 flex flex-col gap-4"
+          style={{ ...C.card, gridColumn: "5/10", gridRow: "2/6" }}>
+
+          {/* Block 1: Avatar + name */}
+          <div className="flex items-start gap-4">
+            <div className="relative flex-shrink-0">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden"
+                style={{ border: "2px solid rgba(167,139,250,0.32)", boxShadow: "0 0 28px rgba(167,139,250,0.15)" }}>
+                <img src={pfp} alt="Ameer Hamza" className="w-full h-full object-cover" />
               </div>
-              {/* Step 4 */}
-              <div className="group relative flex items-start gap-3 bg-[#23232a]/80 rounded-xl px-3 py-2 border border-[#a78bfa]/10 shadow cursor-pointer">
-                <span>
-                  <PiPaletteFill className="text-[#a78bfa] text-xl" />
-                </span>
-                <div className="text-left flex-1">
-                  <div className="text-xs font-semibold text-white">Design</div>
-                  {/* Tooltip - now appears on the left */}
-                  <div className="absolute right-10 top-1/2 -translate-y-1/2 z-10 hidden group-hover:block bg-[#18181b] text-[#a1a1aa] text-xs rounded-md px-3 py-2 border border-[#a78bfa]/20 shadow-lg w-auto">
-                    Developing high-fidelity visuals, refining UI elements, and
-                    ensuring a cohesive and engaging user experience.
-                  </div>
-                </div>
+              <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full flex items-center justify-center"
+                style={{ background: "linear-gradient(135deg,#a78bfa,#fbbf24)" }}>
+                <PiCheckBold className="text-[10px] text-[#0d0b14] font-black" />
               </div>
             </div>
-          </div>
-        </div>
-        {/* Gallery - Right Border */}
-        <div className="slide-in-right col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
-            🖼️
-          </span>
-          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
-            Showcase
-          </span>
-          <h2 className="fade-in text-base font-bold text-white mt-1 tracking-tight">
-            Works Gallery
-          </h2>
-          <div className="fade-in w-full flex flex-col items-center relative">
-            <Marquee
-              speed={25}
-              direction="right"
-              className="my-3 rounded-2xl opacity-30"
-            >
-              <img
-                src={AC}
-                alt="Project 1"
-                className="h-28 w-44 rounded-2xl mx-2 border-2 border-[#a78bfa]/30 shadow"
-                style={{ borderRadius: "35px" }}
-              />
-              <img
-                src={Aiaura}
-                alt="Project 2"
-                className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
-                style={{ borderRadius: "35px" }}
-              />
-              <img
-                src={ReactMini}
-                alt="Project 3"
-                className="h-28 w-44 rounded-lg mx-2 border-2 border-[#a78bfa]/30 shadow"
-                style={{ borderRadius: "35px" }}
-              />
-            </Marquee>
-            <Link
-              to="/works"
-              className="mt-2 px-3 py-1 rounded-lg -translate-y-15 bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-[14px] font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
-            >
-              View My Work
-            </Link>
-          </div>
-        </div>
-        {/* Self details - Center (random slide-in-left) */}
-        <div className="slide-in-left col-span-3 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 md:px-4 py-4 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300">
-          <div className="fade-in flex flex-row items-start w-full max-w-2xl mx-auto mt-0">
-            {/* Profile Image */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-[#a78bfa]   flex-shrink-0 overflow-hidden shadow-lg border-2 border-[#a78bfa]/30">
-              <img src={pfp} className="object-cover" />
-              <div className="w-full h-full bg-[#a78bfa] opacity-80" />
-            </div>
-            {/* Status and Resume */}
-            <div className="flex flex-col ml-3 sm:ml-4 md:ml-6 flex-1 min-w-0">
-              <div className="flex flex-row items-center justify-between flex-wrap gap-2 min-w-0">
-                <span className="flex items-center bg-[#23232a]/80 px-3 py-1 rounded-full text-[11px] sm:text-[12px] text-[#a1a1aa] font-semibold whitespace-nowrap min-w-0 border border-[#34d399]/20 shadow ">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                  Available To Work
+            <div className="flex-1 pt-1">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold"
+                  style={{ background: "rgba(52,211,153,0.09)", border: "1px solid rgba(52,211,153,0.25)", color: "#34d399" }}>
+                  <span className="status-dot" /> Available To Work
                 </span>
-                <a
-                  href="/AMEER_HAMZA_RESUME.pdf"
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-[11px] sm:text-[12px] text-white font-semibold bg-gradient-to-r from-[#a78bfa]/80 to-[#23232a]/80 px-3 ml-2 py-1 rounded-full hover:from-[#b794f4] hover:to-[#28282d] transition min-w-0 border border-[#a78bfa]/20 shadow"
-                  style={{ maxWidth: "60%" }}
-                >
-                  <span className="truncate">Resume</span>
-                  <PiCertificateFill className="w-4 h-4 flex-shrink-0" />
+                <a href="/AMEER_HAMZA_RESUME.pdf" download target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold text-white transition-all hover:scale-105"
+                  style={{ background: "linear-gradient(135deg,rgba(167,139,250,0.35),rgba(20,18,32,0.8))", border: "1px solid rgba(167,139,250,0.25)" }}>
+                  Resume <PiCertificateFill />
                 </a>
               </div>
-              <div className="mt-2 text-left min-w-0">
-                <div className="text-base sm:text-lg md:text-xl font-bold text-white truncate tracking-tight">
-                  Ameer Hamza
-                </div>
-                {/* Description text */}
-                <div
-                  className="text-xs sm:text-sm md:text-base text-[#a1a1aa] leading-tight break-words"
-                  style={{ fontSize: "clamp(0.65rem, 1.2vw, 0.9rem)" }}
-                >
-                  Passionate developer focused on building innovative solutions
-                  and seamless user experiences.
-                </div>
-              </div>
+              <div className="text-2xl font-black text-white tracking-tight leading-tight">Ameer Hamza Athar</div>
+              <div className="text-sm text-[#a78bfa] font-semibold mt-1">Software Engineer &amp; UI/UX Designer</div>
             </div>
           </div>
-          <div className="fade-in flex flex-wrap gap-2 mt-4 w-full bg-[#15151a]/80 rounded-2xl px-2 md:px-4 py-2 justify-center border border-[#a78bfa]/10 shadow">
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
-              <PiCertificateFill className="w-4 h-4 text-[#a78bfa]" />
-              Bahria University
-            </span>
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
-              <PiCampfire className="w-4 h-4 text-[#a78bfa]" />
-              Software Engineer
-            </span>
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
-              <PiMapPinFill className="w-4 h-4 text-[#a78bfa]" />
-              Pakistan
-            </span>
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
-              <PiGlobeHemisphereWestFill className="w-4 h-4 text-[#a78bfa]" />
-              English & Urdu
-            </span>
-            <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[#23232a]/80 text-[12px] text-[#a1a1aa] border border-[#a78bfa]/10">
-              <PiClockFill className="w-4 h-4 text-[#a78bfa]" />
-              PKT
-            </span>
+
+          {/* Block 2: Bio */}
+          <div>
+            <Divider />
+            <p className="text-[13px] text-[#9090a8] leading-relaxed mt-3">
+              Passionate developer with a knack for building innovative, performant web applications
+              and crafting seamless user experiences. Focused on clean code, modern design, and continuous growth.
+            </p>
           </div>
-          <div className="fade-in flex flex-row gap-2 md:gap-3 mt-4 w-full max-w-2xl justify-center">
-            <a
-              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#a78bfa]/80 to-[#23232a]/80 rounded-xl py-2 px-2 text-[#a78bfa] font-semibold text-xs md:text-sm hover:from-[#b794f4] hover:to-[#28282d] transition min-w-0 border border-[#a78bfa]/20 shadow"
-              href="https://www.linkedin.com/in/hamza-athar-ezio"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ minWidth: 0 }}
-            >
-              <PiFlagBannerFoldFill className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">Connect With Me</span>
+
+          {/* Block 3: Tags */}
+          <div className="flex flex-wrap gap-2">
+            {[
+              { icon: <PiCertificateFill className="text-[#a78bfa]" />, label: "Bahria University" },
+              { icon: <PiCampfire className="text-[#fbbf24]" />,        label: "Software Engineer" },
+              { icon: <PiMapPinFill className="text-[#34d399]" />,      label: "Pakistan"          },
+              { icon: <PiGlobeHemisphereWestFill className="text-[#a78bfa]" />, label: "EN / UR"  },
+              { icon: <PiClockFill className="text-[#8b8ba0]" />,       label: "UTC +5"            },
+            ].map(({ icon, label }) => (
+              <span key={label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-medium text-[#9090a8]"
+                style={C.tag}>
+                {icon} {label}
+              </span>
+            ))}
+          </div>
+
+          {/* Block 4: Mini stats */}
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { value: "56+", label: "Projects",   color: "#a78bfa" },
+              { value: "5+",  label: "Years Exp.", color: "#34d399" },
+              { value: "12+", label: "Clients",    color: "#fbbf24" },
+            ].map(({ value, label, color }) => (
+              <div key={label} className="flex flex-col items-center py-3 rounded-xl" style={C.item}>
+                <span className="text-xl font-black" style={{ color }}>{value}</span>
+                <span className="text-[11px] text-[#8b8ba0] font-medium mt-0.5">{label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Block 5: CTA buttons */}
+          <div className="flex gap-3">
+            <a href="https://linkedin.com/in/hamza-athar-ezio" target="_blank" rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold transition-all hover:scale-[1.02]"
+              style={{ background: "linear-gradient(135deg,rgba(167,139,250,0.55),rgba(167,139,250,0.15))", border: "1px solid rgba(167,139,250,0.25)", color: "#e2d9ff" }}>
+              <PiFlagBannerFoldFill className="text-base" /> Connect on LinkedIn
             </a>
-            <a
-              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#a78bfa]/80 to-[#23232a]/80 rounded-xl py-2 px-2 text-[#a78bfa] font-semibold text-xs md:text-sm hover:from-[#b794f4] hover:to-[#28282d] transition min-w-0 border border-[#a78bfa]/20 shadow"
-              href="https://wa.me/+923180535566"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ minWidth: 0 }}
-            >
-              <PiWhatsappLogoLight className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">WhatsApp Me</span>
+            <a href="https://wa.me/+923180535566" target="_blank" rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold transition-all hover:scale-[1.02]"
+              style={{ background: "linear-gradient(135deg,rgba(37,211,102,0.22),rgba(20,18,32,0.7))", border: "1px solid rgba(37,211,102,0.25)", color: "#6de898" }}>
+              <PiWhatsappLogoFill className="text-base" /> WhatsApp
             </a>
           </div>
         </div>
-        {/* Services - Bottom Border */}
-        <div className="slide-in-bottom col-span-1 row-span-3 bg-gradient-to-br from-[#a78bfa]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-3 py-5 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
-            💼
-          </span>
-          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
-            What I Offer
-          </span>
-          <h2 className="fade-in text-base font-bold text-white mt-1 tracking-tight mb-2">
-            Services
-          </h2>
-          <Marquee
-            pauseOnHover
-            gradient={false}
-            speed={40}
-            className="fade-in "
-          >
-            <span className="flex items-center gap-6">
-              <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
-                <PiGlobeHemisphereWestFill className="text-white text-xl" />
-                <span className="text-xs text-white font-semibold">
-                  Web Design
-                </span>
-              </span>
-              <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
-                <PiDevicesBold className="text-white text-xl" />
-                <span className="text-xs text-white font-semibold">
-                  Mobile App Design
-                </span>
-              </span>
-              <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
-                <PiCodeBlock className="text-white text-xl" />
-                <span className="text-xs text-white font-semibold">
-                  Development
-                </span>
-              </span>
-              <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
-                <PiPenNib className="text-white text-xl" />
-                <span className="text-xs text-white font-semibold">
-                  Branding
-                </span>
-              </span>
-              <span className="flex items-center gap-2 px-4 py-2 bg-[#23232a]/80 rounded-xl border border-[#a78bfa]/10 mx-2">
-                <PiAppWindow className="text-white text-xl" />
-                <span className="text-xs text-white font-semibold">UI/UX</span>
-              </span>
-            </span>
-          </Marquee>
-          <Link
-            to="/services"
-            className="fade-in translate-y-3 px-3 py-1 rounded-lg bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-black text-[12px] font-semibold hover:from-[#b794f4] hover:to-[#fde68a] transition shadow"
-          >
-            View My Services
+
+
+        {/* ── Works Gallery  col 10-12, rows 2-4 ── */}
+        {/* justify-between: header at top, images centered, button at bottom */}
+        <div className="slide-in-right rounded-2xl p-4 flex flex-col justify-between"
+          style={{ ...C.card, gridColumn: "10/13", gridRow: "2/5" }}>
+
+          {/* Top */}
+          <div>
+            <SectionLabel icon={<PiImagesBold className="text-[#a78bfa]" />} label="Showcase" />
+            <h2 className="text-base font-bold text-white mt-1">Works Gallery</h2>
+          </div>
+
+          {/* Images — fixed-height marquee, overflow clipped by wrapper */}
+          <div className="rounded-xl overflow-hidden" style={C.item}>
+            <Marquee speed={22} direction="right">
+              {[AC, Aiaura, ReactMini, AC, Aiaura, ReactMini].map((src, i) => (
+                <img key={i} src={src} alt={`Project ${i + 1}`}
+                  className="h-40 w-44 object-cover mx-1.5 rounded-lg"
+                  style={{ border: "1px solid rgba(167,139,250,0.12)", opacity: 0.82 }} />
+              ))}
+            </Marquee>
+          </div>
+
+          {/* Bottom CTA */}
+          <Link to="/works"
+            className="flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-bold text-[#0d0b14] transition-all hover:scale-105 hover:brightness-110"
+            style={{ background: "linear-gradient(135deg,#a78bfa,#fbbf24)", boxShadow: "0 4px 18px rgba(167,139,250,0.28)" }}>
+            View My Work <PiArrowRightBold />
           </Link>
         </div>
-        {/* TechStack - Bottom Border */}
-        <div className="slide-in-bottom col-span-3 row-span-3 bg-gradient-to-br from-[#fbbf24]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#fbbf24]/10 flex flex-col items-center justify-center px-4 py-6 text-center hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300 overflow-hidden">
-          <span className="fade-in text-[#61dafb] text-xl drop-shadow-lg mb-1">
-            🛠️
-          </span>
-          <h2 className="fade-in text-lg font-bold text-white mt-1 mb-3 tracking-tight">
-            Tech Arsenal
-          </h2>
-          <Marquee
-            speed={50}
-            direction="right"
-            className="fade-in mt-5"
-            autoFill={true}
-          >
-            <div className="flex flex-row gap-4 items-center w-full flex-1 justify-start py-1">
-              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#61dafb]/10 min-w-[120px] justify-center">
-                <FaReact className="text-[#61dafb] text-2xl" />
-                <span className="font-semibold">React</span>
-              </span>
-              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#00599C]/10 min-w-[120px] justify-center">
-                <SiCplusplus className="text-[#00599C] text-2xl" />
-                <span className="font-semibold">C++</span>
-              </span>
-              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#fbe200]/10 min-w-[120px] justify-center">
-                <FaPython className="text-[#fbe200] text-2xl" />
-                <span className="font-semibold">Python</span>
-              </span>
-              <span className="flex items-center gap-2 text-base text-[#a1a1aa] py-2 px-4 bg-[#23232a]/80 rounded-xl shadow border border-[#00758F]/10 min-w-[120px] justify-center mr-4">
-                <SiMysql className="text-[#00758F] text-2xl" />
-                <span className="font-semibold">MySQL</span>
-              </span>
-            </div>
+
+
+        {/* ── Services  col 10-12, rows 5-6 ── */}
+        <div className="slide-in-right delay-200 rounded-2xl p-4 flex flex-col justify-between"
+          style={{ ...C.card, gridColumn: "10/13", gridRow: "5/7" }}>
+
+          {/* Top */}
+          <div>
+            <SectionLabel icon={<PiBriefcaseBold className="text-[#fbbf24]" />} label="What I Offer" />
+            <h2 className="text-base font-bold text-white mt-1">Services</h2>
+          </div>
+
+          {/* Middle: marquee chips */}
+          <div className="rounded-xl overflow-hidden py-2" style={C.item}>
+            <Marquee pauseOnHover gradient={false} speed={30}>
+              {[
+                { icon: <PiGlobeHemisphereWestFill />, label: "Web Design"   },
+                { icon: <PiDevicesBold />,             label: "Mobile"       },
+                { icon: <PiCodeBlock />,               label: "Development"  },
+                { icon: <PiPenNib />,                  label: "Branding"     },
+                { icon: <PiAppWindow />,               label: "UI/UX"        },
+              ].map(({ icon, label }) => (
+                <span key={label}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl mx-1.5 text-sm font-semibold text-white"
+                  style={{ background: "rgba(167,139,250,0.08)", border: "1px solid rgba(167,139,250,0.14)" }}>
+                  <span className="text-[#a78bfa] text-base">{icon}</span> {label}
+                </span>
+              ))}
+            </Marquee>
+          </div>
+
+          {/* Bottom CTA */}
+          <Link to="/services"
+            className="flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-bold transition-all hover:scale-105"
+            style={{ background: "linear-gradient(135deg,rgba(167,139,250,0.75),rgba(251,191,36,0.55))", color: "#0d0b14" }}>
+            View Services <PiArrowRightBold />
+          </Link>
+        </div>
+
+
+        {/* ════════════════ ROW 6 – Footer strip ════════════════ */}
+
+        {/* Tech Arsenal  col 1-6 */}
+        <div className="slide-in-bottom rounded-2xl px-5 flex flex-col justify-center gap-2"
+          style={{ ...C.card, gridColumn: "1/7", gridRow: "6" }}>
+          <SectionLabel icon={<PiWrenchBold className="text-[#a78bfa]" />} label="Tech Arsenal" />
+          <Marquee speed={44} direction="right" autoFill gradient={false}>
+            {[
+              { icon: <FaReact className="text-[#61dafb] text-base" />,  label: "React",  color: "#61dafb" },
+              { icon: <SiCplusplus className="text-[#00599C] text-base" />, label: "C++", color: "#00599C" },
+              { icon: <FaPython className="text-[#fbe200] text-base" />, label: "Python", color: "#fbe200" },
+              { icon: <SiMysql className="text-[#00758F] text-base" />,  label: "MySQL",  color: "#00758F" },
+            ].map(({ icon, label, color }) => (
+              <div key={label} className="flex items-center gap-2 px-4 py-1.5 mx-2 rounded-xl"
+                style={{ background: "rgba(30,26,48,0.7)", border: `1px solid ${color}22` }}>
+                {icon}
+                <span className="text-[11px] font-semibold text-[#d0d0e8]">{label}</span>
+              </div>
+            ))}
           </Marquee>
         </div>
-        {/* Online Presence - Left Border */}
-        <div className="slide-in-left col-span-1 row-span-3 bg-gradient-to-br from-[#23232a]/80 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#a78bfa]/10 flex flex-col items-center justify-center px-1 sm:px-2 py-2 sm:py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="fade-in text-[#a78bfa] text-xl drop-shadow-lg">
-            ✨
-          </span>
-          <span className="fade-in text-xs font-semibold text-white mt-1 tracking-tight">
-            Online Presence
-          </span>
-          <div className="fade-in flex flex-col gap-1 w-full mt-2">
-            <a
-              href="https://facebook.com/hamza.athar.1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#1877f3]/10 shadow"
-            >
-              <span className="text-base text-[#1877f3] flex-shrink-0">
-                <FaFacebook />
-              </span>
-              <span className="text-[#a1a1aa] text-xs flex-1 text-left truncate">
-                Hamza Athar
-              </span>
-              <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <FaFacebook />
-              </span>
-            </a>
-            <a
-              href="https://www.instagram.com/_hamza_nvm/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#e1306c]/10 shadow"
-            >
-              <span className="text-base text-[#e1306c] flex-shrink-0">
-                <FaInstagram />
-              </span>
-              <span className="text-[#a1a1aa] text-xs flex-1 text-left truncate">
-                @hamza
-              </span>
-              <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <FaInstagram />
-              </span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hamza-athar-ezio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-[#23232a]/80 rounded-xl px-2 py-1 gap-2 hover:bg-[#28282d] transition w-full min-w-0 border border-[#0077b5]/10 shadow"
-            >
-              <span className="text-base text-[#0077b5] flex-shrink-0">
-                <FaLinkedin />
-              </span>
-              <span className="text-[#a1a1aa] text-xs flex-1 text-left truncate">
-                Hamza Athar
-              </span>
-              <span className="ml-auto text-[#a1a1aa] flex-shrink-0">
-                <FaLinkedin />
-              </span>
-            </a>
+
+        {/* Timeline  col 7-9 */}
+        <div className="slide-in-bottom delay-200 rounded-2xl px-5 flex flex-col justify-center gap-3"
+          style={{ ...C.card, gridColumn: "7/10", gridRow: "6" }}>
+          <SectionLabel icon={<PiCalendarBlankBold className="text-[#a78bfa]" />} label="Timeline" />
+          <div className="flex flex-row justify-between items-start relative px-3">
+            <div className="absolute left-7 right-7 top-[6px] h-px z-0"
+              style={{ background: "linear-gradient(90deg,rgba(167,139,250,0.12),rgba(167,139,250,0.38),rgba(251,191,36,0.12))" }} />
+            {[
+              { year: "2020", event: "Matriculation"  },
+              { year: "2023", event: "Joined Bahria"  },
+              { year: "2027", event: "Graduation"     },
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center relative z-10 text-center w-1/3">
+                <div className="w-3 h-3 rounded-full mb-1.5"
+                  style={{ background: "linear-gradient(135deg,#a78bfa,#fbbf24)", boxShadow: "0 0 10px rgba(167,139,250,0.55)" }} />
+                <div className="text-[11px] text-[#a78bfa] font-bold">{item.year}</div>
+                <div className="text-[10px] text-[#8b8ba0] font-medium mt-0.5 leading-tight">{item.event}</div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* Contact me - Bottom Left Corner */}
-        <div className="slide-in-left col-span-1 row-span-3 bg-gradient-to-br from-[#34d399]/20 to-[#18181b]/90 rounded-2xl shadow-lg border border-[#34d399]/10 flex flex-col items-center justify-center px-2 py-3 text-center hover:scale-[1.03] hover:shadow-2xl transition-transform duration-300">
-          <span className="fade-in text-[#34d399] text-xl drop-shadow-lg">
-            📬
-          </span>
-          <span className="fade-in text-[10px] text-[#a1a1aa] font-semibold mt-1 tracking-wider uppercase">
-            Get in Touch
-          </span>
-          <h2 className="fade-in text-sm font-bold text-white mt-1 tracking-tight">
-            Contact
-          </h2>
-          <p className="fade-in text-xs mt-1 text-[#a1a1aa]">
-            Let's Make Magic Happen Together!
-          </p>
-          <div className="fade-in w-full flex flex-col gap-2 mt-2">
-            <a
-              href="mailto:atharhamza559@gmail.com"
-              className="flex items-center gap-2 bg-[#23232a]/80 hover:bg-[#28282d] transition rounded-xl px-2 py-1 text-white font-semibold text-xs justify-center min-w-0 border border-[#a78bfa]/10 shadow"
-            >
-              <PiEnvelopeSimpleFill className="text-base text-[#a78bfa]" />
-              Email Me
-            </a>
-          </div>
-        </div>
+
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default BentoGridLg;

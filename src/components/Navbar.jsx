@@ -1,21 +1,22 @@
-import { PiUserBold, PiBooksBold, PiSquaresFourBold } from "react-icons/pi";
+import { PiBooksBold, PiSquaresFourBold, PiHouseSimpleBold } from "react-icons/pi";
 import { useLocation, Link } from "react-router-dom";
 
 const tabs = [
   {
-    name: "About",
-    path: "/about",
-    icon: <PiUserBold className="text-lg mr-2" />,
+    name: "Home",
+    path: "/",
+    icon: <PiHouseSimpleBold className="text-base mr-1.5" />,
   },
+
   {
     name: "Works",
     path: "/works",
-    icon: <PiBooksBold className="text-lg mr-2" />,
+    icon: <PiBooksBold className="text-base mr-1.5" />,
   },
   {
     name: "Services",
     path: "/services",
-    icon: <PiSquaresFourBold className="text-lg mr-2" />,
+    icon: <PiSquaresFourBold className="text-base mr-1.5" />,
   },
 ];
 
@@ -23,26 +24,38 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full flex justify-center items-center pt-8 pb-4 select-none">
-      <div className="flex bg-gradient-to-br from-[#23232a]/80 to-[#18181e]/90 border border-[#a78bfa]/10 rounded-2xl shadow-lg px-2 py-2 gap-2 backdrop-blur-md">
+    <nav className="w-full flex justify-center items-center pt-6 pb-4 select-none z-50">
+      <div
+        className="flex items-center gap-1 px-2 py-2 rounded-2xl border"
+        style={{
+          background: "rgba(20, 20, 30, 0.85)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid rgba(167,139,250,0.15)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(167,139,250,0.05)",
+        }}
+      >
         {tabs.map((tab) => {
           const isActive = location.pathname === tab.path;
           return (
             <Link
               key={tab.name}
               to={tab.path}
-              className={`flex items-center px-6 py-3 rounded-xl font-semibold text-sm transition
-                ${
-                  isActive
-                    ? "bg-gradient-to-r from-[#a78bfa] to-[#fbbf24] text-[#23232a] shadow-md border-2 border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400"
-                    : "bg-[#23232a]/80 text-[#a1a1aa] hover:bg-[#a78bfa]/10 hover:text-white border border-[#a78bfa]/10"
-                }
-              `}
-              style={{
-                boxShadow: isActive
-                  ? "0 2px 8px 0 rgba(167,139,250,0.10)"
-                  : undefined,
-              }}
+              className={`flex items-center px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                isActive
+                  ? "text-[#1a1a24] shadow-lg"
+                  : "text-[#8b8ba0] hover:text-white hover:bg-white/5"
+              }`}
+              style={
+                isActive
+                  ? {
+                      background:
+                        "linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #fbbf24 100%)",
+                      boxShadow:
+                        "0 4px 16px rgba(167,139,250,0.35), inset 0 1px 0 rgba(255,255,255,0.2)",
+                    }
+                  : {}
+              }
             >
               {tab.icon}
               {tab.name}
